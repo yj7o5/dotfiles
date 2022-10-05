@@ -60,8 +60,7 @@ cp .gitconfig "$HOME/.gitconfig"
 # zsh configs + install
 chsh -s $(which zsh)
 rm -rf $HOME/.oh-my-zsh
-wget -O oh-my-zsh-install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-chmod +x oh-my-zsh-install.sh && ./oh-my-zsh-install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
@@ -70,4 +69,3 @@ cp .zsh_aliases "$HOME/.zsh_aliases"
 source_if_exists "$HOME/.zshrc"
 source_if_exists "$HOME/.zsh_aliases"
 source_if_exists "$HOME/.work_functions.zsh"
-
