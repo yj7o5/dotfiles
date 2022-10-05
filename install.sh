@@ -4,13 +4,9 @@
 set -e
 eval $(ssh-agent -s)
 
-source_if_exists() {
-  [[ -s $1 ]] && source $1
-}
-
 # install pacakges
 add-apt-repository -y ppa:jonathonf/vim && apt-get update -yqq
-DEBIAN_FRONTEND=noninteractive xargs sudo apt-get install -yqq <zsh-requirements.txt
+DEBIAN_FRONTEND=noninteractive xargs apt-get install -yqq <zsh-requirements.txt
 
 # vim configs + install
 rm -rf ~/.vim
@@ -33,7 +29,6 @@ dpkg -i ripgrep.deb
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install --all
 cp .fzf.zsh "$HOME/.fzf.zsh"
-source_if_exists "$HOME/.fzf.zsh"
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -66,6 +61,4 @@ cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
 cp .zsh_aliases "$HOME/.zsh_aliases"
 
-source_if_exists "$HOME/.zshrc"
-source_if_exists "$HOME/.zsh_aliases"
-source_if_exists "$HOME/.work_functions.zsh"
+source "$HOME/.zshrc"

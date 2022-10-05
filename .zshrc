@@ -1,9 +1,17 @@
+source_if_exists() {
+  [[ -s $1 ]] && source $1
+}
+
 # profile startup
 zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+
+source_if_exists "$ZSH/oh-my-zsh.sh"
+source_if_exists "$HOME/.zsh_aliases"
+source_if_exists "$HOME/.work_functions.zsh"
+source_if_exists "$HOME/.fzf.zsh"
 
 plugins=(docker docker-compose)
 # add the argument to $PATH only if it's not already present
