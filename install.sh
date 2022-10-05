@@ -1,7 +1,7 @@
 #!/bin/zsh
 # helper functions
 
-set -ex
+set -e
 eval $(ssh-agent -s)
 
 source_if_exists() {
