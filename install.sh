@@ -1,12 +1,13 @@
+#
 #!/bin/zsh
-
 # helper functions
 function source_if_exists() { [[ -s $1 ]] && source $1 }
 
 set -e
 
 # install pacakges
-xargs sudo apt-get install <zsh-requirements.txt
+add-apt-repository ppa:jonathonf/vim && apt-get update
+DEBIAN_FRONTEND=noninteractive xargs sudo apt-get install -yqq <zsh-requirements.txt
 
 # vim configs + install
 rm -rf ~/.vim
@@ -38,9 +39,15 @@ source_if_exists "$HOME/.work_functions.zsh"
 cp .tmux.conf "$HOME/.tmux.conf"
 source_if_exists "$HOME/.tmux.conf"
 
+# ripgrep
+RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[0-9.]+')
+curl -Lo ripgrep.deb "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep_${RIPGREP_VERSION}_amd64.deb"
+dpkg -i ripgrep.deb
+
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install --completion --bin --no-fish --no-bash
+$HOME/.fzf/install --all
+cp .fzf.zsh "$HOME/.fzf.zsh"
 source_if_exists "$HOME/.fzf.zsh"
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
