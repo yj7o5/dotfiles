@@ -2,6 +2,7 @@
 # helper functions
 
 set -ex
+eval $(ssh-agent -s)
 
 source_if_exists() {
   [[ -s $1 ]] && source $1
@@ -20,28 +21,8 @@ cp vim-configs/plugin_configs.vim $HOME/.vim/
 cp vim-configs/vimrc $HOME/.vimrc
 vim +PlugInstall +qall
 
-# zsh configs + install
-chsh -s $(which zsh)
-eval $(ssh-agent -s)
-rm -rf $HOME/.oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-cp .zshrc "$HOME/.zshrc"
-cp .zsh_aliases "$HOME/.zsh_aliases"
-
-cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
-
-source_if_exists "$HOME/.zshrc"
-source_if_exists "$HOME/.zsh_aliases"
-source_if_exists "$HOME/.gvm/scripts/gvm"
-source_if_exists "$HOME/.iterm2_shell_integration.zsh"
-source_if_exists "$HOME/.nix-profile/etc/profile.d/nix.sh"
-source_if_exists "$HOME/.zsh_aliases"
-source_if_exists "$HOME/.work_functions.zsh"
-
 # tmux
 cp .tmux.conf "$HOME/.tmux.conf"
-source_if_exists "$HOME/.tmux.conf"
 
 # ripgrep
 RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[0-9.]+')
@@ -75,3 +56,18 @@ fd() {
 
 # git
 cp .gitconfig "$HOME/.gitconfig"
+
+# zsh configs + install
+chsh -s $(which zsh)
+rm -rf $HOME/.oh-my-zsh
+wget -O oh-my-zsh-install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+chmod +x oh-my-zsh-install.sh && ./oh-my-zsh-install.sh
+
+cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
+cp .zshrc "$HOME/.zshrc"
+cp .zsh_aliases "$HOME/.zsh_aliases"
+
+source_if_exists "$HOME/.zshrc"
+source_if_exists "$HOME/.zsh_aliases"
+source_if_exists "$HOME/.work_functions.zsh"
+
