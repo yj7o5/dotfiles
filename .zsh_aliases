@@ -1,0 +1,79 @@
+#!/usr/bin/env zsh
+
+#topcommands {
+#  history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head -n ${1:-5}
+#}
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# some cd aliases
+alias ..='cd ..'
+
+alias e='exit'
+
+# make tmux play well with fancy prompt
+alias tmux="TERM=screen-256color-bce tmux"
+
+# a few helpful and silly git aliases
+alias getdefault="git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+alias setdefault="git remote set-head origin --auto"
+alias g='git'
+alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias new='git log $1@{1}..$1@{0} "$@"'
+alias yoda="git push --force"
+alias amend="git commit -a --amend -C HEAD"
+alias squash="git rebase -i origin/main"
+alias prune="docker system prune"
+# remove local git branches that aren't remote
+alias rmgone="git fetch -p && for branch in \$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '\$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", \$1); print \$1}'); do git branch -D \$branch; done"
+
+# handy open all files in vim
+# alias vi="/usr/local/Cellar/vim/8.1.0500_1/bin/vim" # use brew's vim because --with-python3
+alias all="vi -p *"
+
+alias ss="source ~/.zprofile"
+
+alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
+alias batt="pmset -g batt"
+
+# kubernetes
+alias k='kubectl'
+
+# network shits
+function ip {
+ ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'
+}
+
+function get_docker_compose() {
+  local base=$HOME
+  if [ ! -f "$base/.devbox/$1/docker-compose.yml" ]; then
+    echo "docker-compose for $1box doesn't exist. Pulling now..."
+    curl --fail https://raw.githubusercontent.com/jayeve/terminal/master/devbox/$1/docker-compose.yml -o tmp && \
+    mkdir -p $base/.devbox/$1 && mv tmp $base/.devbox/$1/docker-compose.yml
+  fi
+}
+
+function devbox() {
+  local base=$HOME
+  export TAG=${2:-latest}
+  get_docker_compose $1 && docker-compose -f $base/.devbox/$1/docker-compose.yml run $1box
+}
+
+alias sb='devbox scala'
+alias vb='devbox vim'
+alias rb='devbox rust'
+alias pb='devbox py'
+
+# delete exited containers
+alias dke='docker rm $(docker ps -q -f status=exited)'
+alias dui='docker container run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
+
+# giter8 scala template
+alias st='g8 jayeve/scala-template.g8'
+
+# passwordless ssh
+alias master="ssh pi@69.215.146.63"
+alias k1="ssh pi@kubelet1.local"

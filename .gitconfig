@@ -1,50 +1,8 @@
-[user]
-	email = jimmy.zelinskie+git@gmail.com
-	name = Jimmy Zelinskie
-	signingkey = A49C1F7C
-[color]
-	ui = auto
-[alias]
-	amend = commit --amend --no-edit
-	ammend = amend
-	cherrypick = cherry-pick
-	co = checkout
-	cob = "!f() { git checkout master; git pull; git checkout -b $1; }; f"
-	comit = commit
-	copr = "!f() { git fetch $1 pull/$2/head:pr-$2 && git checkout pr-$2; }; f"
-	dc = diff --cached
-	dif = diff
-	find = log --pretty=\"format:%Cgreen%H\n%s\n\n%b\" --name-status --grep
-	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
-	grep-open = "!f() { git grep $1 | cut -d: -f1 | xargs $EDITOR; }; f"
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) -%an%Creset' --abbrev-commit
-	pullr = pull --rebase
-	rebase-i = rebase -i --autostash
-	remotes = remote
-	s = status --short --branch --ignore-submodules=untracked
-	sha = rev-parse --short
-	stage-head = git reset --soft HEAD~
-	unadd = reset HEAD
 [core]
-	excludesfile = ~/.gitignore
-	safecrlf = true
-	trustctime = false
-[diff]
-	compactionHeuristic = true
-	mnemonicprefix = true
-[merge]
-	tool = vimdiff
-[mergetool]
-	prompt = true
-[mergetool "vimdiff"]
-	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[push]
-	default = simple
-[github]
-	user = jzelinskie
-[rerere]
-	enabled = true
-[pull]
-	ff = only
-[rebase]
-	autoStash = true
+  excludesfile = ~/.gitignore
+  editor = /usr/bin/vim
+[user]
+  name = J Evans
+  email = 10482250+jayeve@users.noreply.github.com
+[alias]
+  recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'

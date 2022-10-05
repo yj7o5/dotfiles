@@ -1,0 +1,48 @@
+set rtp +=~/.vim
+
+" Install vim-plug if we don't already have it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'kien/ctrlp.vim'                                 " fuzzy-finder
+Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'                           " thrift colorescheme
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'ruanyl/vim-gh-line'                             " Open git commit line highlight URL link from line in file
+Plug 'terryma/vim-multiple-cursors'                   " Sublime-like multiple cursors
+Plug 'godlygeek/tabular'                              " Tabularize for nice formatting
+Plug 'MarcWeber/vim-addon-manager-known-repositories' " random shit
+Plug 'junegunn/goyo.vim'                              " distraction free mode :Goyo [width]
+Plug 'scrooloose/nerdtree'
+Plug 'jremmen/vim-ripgrep'                            " simply better than Grep
+Plug 'jlanzarotta/bufexplorer'                        " Bufexplorer
+Plug 'itchyny/lightline.vim'                          " status line
+Plug 'tomtom/tlib_vim'                                " needed for vim-snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'                   " needed for vim-snipmate
+Plug 'honza/vim-snippets'                             " code snippets
+Plug 'derekwyatt/vim-scala'
+Plug 'airblade/vim-gitgutter'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+filetype plugin indent on
+call plug#end()
+
+" My Configs
+set cursorline
+source ~/.vim/my_configs.vim
+source ~/.vim/plugin_configs.vim " mappings/settings specific to the above plugins
