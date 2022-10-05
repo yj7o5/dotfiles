@@ -1,14 +1,14 @@
 #!/bin/zsh
 # helper functions
 
-set -e
+set -ex
 
 source_if_exists() {
   [[ -s $1 ]] && source $1
 }
 
 # install pacakges
-add-apt-repository ppa:jonathonf/vim && apt-get update -yqq
+add-apt-repository -y ppa:jonathonf/vim && apt-get update -yqq
 DEBIAN_FRONTEND=noninteractive xargs sudo apt-get install -yqq <zsh-requirements.txt
 
 # vim configs + install
@@ -22,6 +22,7 @@ vim +PlugInstall +qall
 
 # zsh configs + install
 chsh -s $(which zsh)
+eval $(ssh-agent -s)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 cp .zshrc "$HOME/.zshrc"

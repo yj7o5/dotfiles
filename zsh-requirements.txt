@@ -31,4 +31,3 @@ fio
 pv
 siege
 nload
-wrk
