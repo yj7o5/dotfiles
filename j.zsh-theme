@@ -1,8 +1,4 @@
 #!/usr/bin/env zsh
-battery_power() {
-  pmset -g batt | awk '/%/' | awk '{print $3}' | cut -d ';' -f 1
-}
-
 git_info() {
 
   # Exit if not inside a Git repository
@@ -56,6 +52,6 @@ git_info() {
   echo "$fg[red][${(j: :)GIT_INFO}$fg[red]]"
 }
 
-PROMPT=$'%{$fg[red]%}┌─%(?,,%{$fg[red]%}[%{$fg_bold[red]%}✗%{$reset_color%}%{$fg[red]%}]─)[%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}]-%{$(git_info)%}-[$fg[cyan]%W-%@$fg[red]]-[$fg[yellow]$(battery_power)%$fg[red]]-[$fg[green]jobs: %j$fg[red]]
+PROMPT=$'%{$fg[red]%}┌─%(?,,%{$fg[red]%}[%{$fg_bold[red]%}✗%{$reset_color%}%{$fg[red]%}]─)[%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}]-%{$(git_info)%}-[$fg[cyan]%W-%@$fg[red]]-[$fg[green]jobs: %j$fg[red]]
 %{$fg[red]%}└───[%{$fg_bold[green]%}%m%{$reset_color%}%{$fg[red]%}]╼ %{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 PS2=$' %{$fg[green]%}|>%{$reset_color%} '
