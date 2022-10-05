@@ -1,10 +1,9 @@
 tmux
-ripgrep
 autojump
 less
-vim
 vim-gtk3
 vim-nox
+vim
 git
 tig
 gh

@@ -1,12 +1,14 @@
-#
 #!/bin/zsh
 # helper functions
-function source_if_exists() { [[ -s $1 ]] && source $1 }
 
 set -e
 
+source_if_exists() {
+  [[ -s $1 ]] && source $1
+}
+
 # install pacakges
-add-apt-repository ppa:jonathonf/vim && apt-get update
+add-apt-repository ppa:jonathonf/vim && apt-get update -yqq
 DEBIAN_FRONTEND=noninteractive xargs sudo apt-get install -yqq <zsh-requirements.txt
 
 # vim configs + install
