@@ -8,12 +8,7 @@ zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source_if_exists "$ZSH/oh-my-zsh.sh"
-source_if_exists "$HOME/.zsh_aliases"
-source_if_exists "$HOME/.work_functions.zsh"
-source_if_exists "$HOME/.fzf.zsh"
-
-plugins=(docker docker-compose)
+plugins=(docker docker-compose fzf)
 # add the argument to $PATH only if it's not already present
 function extend_path() {
   [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
@@ -42,9 +37,7 @@ if which xclip > /dev/null; then
   alias pbpaste='xclip -selection clipboard -o'
 fi
 
-#if which rg > /dev/null; then export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc; fi
-# time aliases
-alias ber='TZ=Europe/Berlin date'
-alias nyc='TZ=America/New_York date'
-alias sfo='TZ=America/Los_Angeles date'
-alias utc='TZ=Etc/UTC date'
+source_if_exists "$ZSH/oh-my-zsh.sh"
+source_if_exists "$HOME/.zsh_aliases"
+source_if_exists "$HOME/.work_functions.zsh"
+source_if_exists "$HOME/.fzf.zsh"

@@ -28,28 +28,8 @@ rm ripgrep.deb
 
 # fzf
 rm -rf "$HOME/.fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install --all
-cp .fzf.zsh "$HOME/.fzf.zsh"
-
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fe() {
-  local __files
-  OLDIFS=$IFS
-  IFS=$'\n' __files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$__files" ]] && ${EDITOR:-vim} "${__files[@]}" && IFS=$OLDIFS || IFS=$OLDIFS
-}
-
-# fd [FUZZY PATTERN] - Open the selected folder
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fd() {
-  local __file
-  local __dir
-  __file=$(fzf +m -q "$1") && __dir=$(dirname "$__file") && cd "$__dir"
-}
+#git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+#$HOME/.fzf/install --all
 
 # git
 cp .gitconfig "$HOME/.gitconfig"

@@ -77,3 +77,10 @@ alias st='g8 jayeve/scala-template.g8'
 # passwordless ssh
 alias master="ssh pi@69.215.146.63"
 alias k1="ssh pi@kubelet1.local"
+
+#if which rg > /dev/null; then export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc; fi
+# time aliases
+alias ber='TZ=Europe/Berlin date'
+alias nyc='TZ=America/New_York date'
+alias sfo='TZ=America/Los_Angeles date'
+alias utc='TZ=Etc/UTC date'
