@@ -34,7 +34,7 @@ alias rmgone="git fetch -p && for branch in \$(git for-each-ref --format '%(refn
 # alias vi="/usr/local/Cellar/vim/8.1.0500_1/bin/vim" # use brew's vim because --with-python3
 alias all="vi -p *"
 
-alias ss="source ~/.zprofile"
+alias sss="source ~/.zshrc"
 
 alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
 alias batt="pmset -g batt"
