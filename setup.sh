@@ -42,5 +42,6 @@ cp .zsh_aliases "$HOME/.zsh_aliases"
 
 # tmux
 cp .tmux.conf "$HOME/.tmux.conf"
+[ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 source "$HOME/.zshrc"
