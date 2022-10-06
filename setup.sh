@@ -70,6 +70,4 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme agnoster #you need to install powerline fonts for this theme (apt-get install powerline)
 antigen apply
 
-chown -R $(whoami): $HOME
-
 source "$HOME/.zshrc"
