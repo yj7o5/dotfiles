@@ -4,6 +4,8 @@ less
 vim-gtk3
 vim-nox
 vim
+zsh-antigen
+powerline
 git
 tig
 gh
