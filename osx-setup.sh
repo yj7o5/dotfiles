@@ -8,6 +8,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew tap Homebrew/bundle
 brew bundle
 
+# rust
+curl https://sh.rustup.rs -sSf | sh
 
 # vim configs + install
 rm -rf ~/.vim
