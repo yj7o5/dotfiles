@@ -64,12 +64,12 @@ cp .zshrc "$HOME/.zshrc"
 cp .zsh_aliases "$HOME/.zsh_aliases"
 
 # install antigen
-source /usr/share/zsh-antigen/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle composer
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme agnoster #you need to install powerline fonts for this theme (apt-get install powerline)
-antigen apply
+#source /usr/share/zsh-antigen/antigen.zsh
+#antigen use oh-my-zsh
+#antigen bundle git
+#antigen bundle composer
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen theme agnoster #you need to install powerline fonts for this theme (apt-get install powerline)
+#antigen apply
 
 source "$HOME/.zshrc"
