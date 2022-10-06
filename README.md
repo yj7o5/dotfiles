@@ -1,31 +1,15 @@
-# Jimmy Zelinskie's Dotfiles
+# J's dotfiles setup for a Ubuntu 18.04 machine
 
-I primarily use macOS, but I also use Linux and Cygwin/WSL on Windows.
-I strive to make everything work *within reason* across all three platforms.
-Configuration requiring non-standard software should also gracefully degrade to something available on all platforms.
-I kinda take a [suckless]-style approach to configuration: nothing should be thousands of lines.
+## Installation Notes
 
-[suckless]: https://suckless.org
+- The `personalize` script in coder isn't running `chown` correctly, so you must run manually after jumping on the box
+```bash
+sudo chown -R $(who | head -n 1 | awk '{print $1;}'): $HOME
+```
+- install `tmux` plugins after starting `tmux` for the first time with `bind-key + shift + i` (`Ctrl-a + I`)
 
 ## Installation
 
-## Toolbox
-
-[I wrote a post] about BYOU (Bring Your Own Userspace).
-
-Basically, you can run my dotfiles in a container and mount your host inside, if you don't want to install anything.
-
-[I wrote a post]: https://jzelinskie.com/posts/toolbox-for-your-dotfiles
-
-## Directly
-
-A simple installation zsh script is provided that inspects the filesystem and prompts the user before making any changes.
-
-Because vim and zsh install all of their plugins on first run, this script just creates symlinks and optionally installs [Homebrew] packages.
-
-[Homebrew]: https://brew.sh
-
-```sh
-$ git clone git@github.com:jzelinskie/dotfiles.git ~/.dotfiles
-$ zsh ~/.dotfiles/install.zsh
+```bash
+./install.sh
 ```
