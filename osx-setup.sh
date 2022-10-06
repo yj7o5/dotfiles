@@ -4,9 +4,10 @@
 set -e
 eval $(ssh-agent -s)
 
-# install pacakges
-add-apt-repository -y ppa:jonathonf/vim && apt-get update -yqq
-DEBIAN_FRONTEND=noninteractive xargs apt-get install -yqq <apt-requirements.txt
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap Homebrew/bundle
+brew bundle
+
 
 # vim configs + install
 rm -rf ~/.vim
@@ -16,12 +17,6 @@ cp vim-configs/my_configs.vim $HOME/.vim/
 cp vim-configs/plugin_configs.vim $HOME/.vim/
 cp vim-configs/vimrc $HOME/.vimrc
 vim +PlugInstall +qall
-
-# ripgrep
-RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[0-9.]+')
-curl -Lo ripgrep.deb "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep_${RIPGREP_VERSION}_amd64.deb"
-dpkg -i ripgrep.deb
-rm ripgrep.deb
 
 # fzf
 rm -rf "$HOME/.fzf"
