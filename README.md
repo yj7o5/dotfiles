@@ -6,6 +6,7 @@
 ```bash
 sudo chown -R $(who | head -n 1 | awk '{print $1;}'): $HOME
 ```
+- install `tmux` plugins after starting `tmux` for the first time with `bind-key + shift + i` (`Ctrl-a + I`)
 
 ## Installation
 
