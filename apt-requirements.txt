@@ -4,10 +4,13 @@ bash-completion
 build-essential
 cargo
 cmake
+coreutils
 curl
 diffstat
 dnsutils
 fio
+flake8
+gawk
 gh
 git
 httpie
@@ -24,6 +27,7 @@ nmap
 pkg-config
 powerline
 pv
+pylint
 python3-pip
 siege
 subversion

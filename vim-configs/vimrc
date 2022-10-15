@@ -36,11 +36,14 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'dense-analysis/ale'
 
+call plug#end()
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 filetype plugin indent on
-call plug#end()
 
 " My Configs
 set cursorline
