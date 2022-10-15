@@ -1,7 +1,7 @@
 #!/bin/zsh
 # helper functions
 
-set -e
+set -ex
 eval $(ssh-agent -s)
 
 # install pacakges
@@ -36,15 +36,26 @@ chsh -s $(which zsh)
 rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+# fzf-tab must be after oh-my-zsh is installed
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
+
 cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
 cp .zsh_aliases "$HOME/.zsh_aliases"
+
+# zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 # tmux
 cp .tmux.conf "$HOME/.tmux.conf"
 [ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
+# helpful functions
+cp .work_functions.zsh "$HOME/.work_functions.zsh"
+
 ## random installs not easily available on apt repositories
+
+yarn global add stylelint
 
 # loc (lines-of-code)
 cargo install loc

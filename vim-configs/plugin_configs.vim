@@ -10,7 +10,7 @@ set noshowmode " no longer need to show INSERT as it's on the status bar
 set relativenumber
 set t_Co=256 " lots of colors here
 set laststatus=2
-silent! colorscheme gruvbox
+silent! colorscheme gruvbox " iceberg
 set background=dark
 hi Search cterm=NONE ctermfg=black ctermbg=red
 
@@ -75,8 +75,8 @@ set updatetime=100
 """""""""""""""""""""
 let mapleader = ","
 
-" allow sourcing of vim without re-opening
-map <leader>s :source ~/.vimrc<CR>
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>l :source ~/.vimrc \| :PlugInstall<CR>
 
 " window controls
 " maximize window vertically
@@ -95,6 +95,14 @@ map <Space> /
 " remove highlights quickly
 map ; :noh<CR>
 
+" save buffers between runs
+set viminfo^=%
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -105,9 +113,7 @@ let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
-map <leader>o :BufExplorer<cr>
-
-
+map <leader>o :BufExplorer<CR>
 
 """"""""""""""""""""""""""""""
 " => itchyny status line
@@ -135,12 +141,29 @@ map <leader>r :Rg<Space>
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<c-p>'
-map <leader>j :CtrlP<cr>
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+" let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_map = '<c-p>'
+" map <leader>j :CtrlP<cr>
+" let g:ctrlp_max_height = 20
+" let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
+
+""""""""""""""""""""""""""""""
+" => FZF
+""""""""""""""""""""""""""""""
+"Quick ripgrep word under cursor
+command! -bang -nargs=0 RgCWord
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(expand('<cword>')), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html
+
+nnoremap <silent> <Space>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <leader>h :History<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>c :RgCWord<cr>
+nmap <silent> <tab> :Files<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
@@ -249,8 +272,11 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" change Highlight color settings
-highlight CocHintFloat ctermfg=DarkMagenta ctermbg=239 guifg=#15aabf guibg=#504945
+" change Coc Highlight color settings
+highlight CocInlayHint ctermfg=yellow ctermbg=240 guifg=#fab005
+highlight CocInlayHintParameter ctermfg=yellow ctermbg=240 guifg=#fab005
+highlight CocInlayHintType ctermfg=yellow ctermbg=240 guifg=#fab005
+
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -316,3 +342,6 @@ nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
 nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
 " Reveal current current class (trait or object) in Tree View 'metalsPackages'
 nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
+
+" zoxide jump to directory
+nnoremap <silent> <leader>j :Zi<cr>

@@ -25,6 +25,9 @@ rm -rf "$HOME/.fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install --all
 
+# fzf-tab
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
+
 # git
 cp .gitconfig "$HOME/.gitconfig"
 
@@ -37,8 +40,17 @@ cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
 cp .zsh_aliases "$HOME/.zsh_aliases"
 
+# zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 # tmux
 cp .tmux.conf "$HOME/.tmux.conf"
 [ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
+
+# helpful functions
+cp .work_functions.zsh "$HOME/.work_functions.zsh"
+
+# misc
+yarn global add stylelint
 
 source "$HOME/.zshrc"
