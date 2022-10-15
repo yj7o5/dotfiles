@@ -47,5 +47,4 @@ filetype plugin indent on
 
 " My Configs
 set cursorline
-source ~/.vim/my_configs.vim
 source ~/.vim/plugin_configs.vim " mappings/settings specific to the above plugins
