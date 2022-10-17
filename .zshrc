@@ -54,7 +54,7 @@ fi
 
 source_if_exists "$HOME/.gvm/scripts/gvm"
 source_if_exists "$HOME/.iterm2_shell_integration.zsh"
-source_if_exists "$HOME/.nix-profile/etc/profile.d/nix.sh"
+#source_if_exists "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
 source_if_exists "$HOME/.work_functions.zsh"
 source_if_exists "$HOME/.zsh_aliases"
