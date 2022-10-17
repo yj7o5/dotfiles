@@ -36,6 +36,9 @@ alias all="vi -p *"
 
 alias sss="source ~/.zshrc"
 
+# zoxide to j to put on a home key (default autojump command)
+alias j="z"
+
 alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
 alias batt="pmset -g batt"
 

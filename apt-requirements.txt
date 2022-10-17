@@ -1,4 +1,3 @@
-autojump
 axel
 bash-completion
 build-essential
