@@ -73,7 +73,7 @@ fe() {
 # fd [FUZZY PATTERN] - Open the selected folder
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-fd() {
+fdd() {
   local __file
   local __dir
   __file=$(fzf +m -q "$1") && __dir=$(dirname "$__file") && cd "$__dir"
