@@ -13,3 +13,7 @@ sudo chown -R $(who | head -n 1 | awk '{print $1;}'): $HOME
 ```bash
 ./install.sh
 ```
+
+# TODO
+
+- use antigen: https://phuctm97.com/blog/zsh-antigen-ohmyzsh
