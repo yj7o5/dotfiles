@@ -40,7 +40,7 @@ alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active
 alias batt="pmset -g batt"
 
 # kubernetes
-alias k='kubectl'
+alias kk='kubectl'
 
 # network shits
 function ip {
