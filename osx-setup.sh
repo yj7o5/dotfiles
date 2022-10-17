@@ -28,6 +28,9 @@ $HOME/.fzf/install --all
 # fzf-tab
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
 
+# zsh plugin: fzf-tab must be after oh-my-zsh is installed
+git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/k
+
 # git
 cp .gitconfig "$HOME/.gitconfig"
 

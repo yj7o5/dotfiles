@@ -36,8 +36,11 @@ chsh -s $(which zsh)
 rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# fzf-tab must be after oh-my-zsh is installed
+# zsh plugin: fzf-tab must be after oh-my-zsh is installed
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
+
+# zsh plugin: fzf-tab must be after oh-my-zsh is installed
+git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/k
 
 cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
