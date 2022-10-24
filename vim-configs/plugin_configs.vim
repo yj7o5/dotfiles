@@ -345,3 +345,9 @@ nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPacka
 
 " zoxide jump to directory
 nnoremap <silent> <leader>j :Zi<cr>
+
+""""""""""""""""""""""""""""""
+" => vim-gh-line
+""""""""""""""""""""""""""""""
+"let g:gh_open_command = 'open -a /Applications/Firefox.app '
+let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '

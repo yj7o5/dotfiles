@@ -20,13 +20,12 @@ Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'ruanyl/vim-gh-line'                             " Open git commit line highlight URL link from line in file
 Plug 'terryma/vim-multiple-cursors'                   " Sublime-like multiple cursors
 ""Plug 'godlygeek/tabular'                              " Tabularize for nice formatting
 ""Plug 'MarcWeber/vim-addon-manager-known-repositories' " random shit
 ""Plug 'junegunn/goyo.vim'                              " distraction free mode :Goyo [width]
 Plug 'scrooloose/nerdtree'
-Plug 'jremmen/vim-ripgrep'                            " simply better than Grep
+""Plug 'jremmen/vim-ripgrep'                            " simply better than Grep, made redundant by the fzf plugin[s]
 Plug 'jlanzarotta/bufexplorer'                        " Bufexplorer
 Plug 'itchyny/lightline.vim'                          " status line
 Plug 'derekwyatt/vim-scala'
@@ -39,6 +38,7 @@ Plug 'dense-analysis/ale'
 Plug 'davidhalter/jedi-vim'
 Plug 'PsychoLlama/teleport.vim'
 Plug 'nanotee/zoxide.vim'
+Plug 'ruanyl/vim-gh-line'                             " Open git commit line highlight URL link from line in file
 
 call plug#end()
 autocmd FileType json syntax match Comment +\/\/.\+$+
