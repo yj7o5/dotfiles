@@ -90,7 +90,7 @@ map <leader>= <C-w>=
 :noremap == <C-w>=
 
 " map spacebar to search
-map <Space> /
+"map <Space> /
 
 " remove highlights quickly
 map ; :noh<CR>
@@ -143,7 +143,7 @@ map <leader>r :Rg<Space>
 """"""""""""""""""""""""""""""
 " let g:ctrlp_working_path_mode = 0
 " let g:ctrlp_map = '<c-p>'
-" map <leader>j :CtrlP<cr>
+" map <leader>g :CtrlP<cr>
 " let g:ctrlp_max_height = 20
 " let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
@@ -158,12 +158,27 @@ command! -bang -nargs=0 RgCWord
   \   fzf#vim#with_preview(), <bang>0)
 
 " https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html
+"
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'DiffAdd', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <silent> <Space>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <leader>h :History<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>c :RgCWord<cr>
-nmap <silent> <tab> :Files<cr>
+"nmap <silent> <tab> :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <tab> :Files<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
@@ -227,7 +242,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-pyright'
+  \ 'coc-pyright',
+  \ 'coc-kotlin'
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -269,14 +285,15 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" change Coc Highlight color settings
-highlight CocInlayHint ctermfg=yellow ctermbg=240 guifg=#fab005
-highlight CocInlayHintParameter ctermfg=yellow ctermbg=240 guifg=#fab005
-highlight CocInlayHintType ctermfg=yellow ctermbg=240 guifg=#fab005
-
+if has_key(g:plugs, 'coc.nvim')
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " change Coc Highlight color settings
+  highlight CocInlayHint ctermfg=yellow ctermbg=240 guifg=#fab005
+  highlight CocInlayHintParameter ctermfg=yellow ctermbg=240 guifg=#fab005
+  highlight CocInlayHintType ctermfg=yellow ctermbg=240 guifg=#fab005
+  highlight CocErrorFloat ctermfg=175 guifg=#ff0000 guibg=#d3869b guifg=purple
+endif
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -311,37 +328,37 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Notify coc.nvim that <enter> has been pressed.
 " Currently used for the formatOnType feature.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Toggle panel with Tree Views
-nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
+"nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
 " Toggle Tree View 'metalsPackages'
-nnoremap <silent> <space>tp :<C-u>CocCommand metals.tvp metalsPackages<CR>
+"nnoremap <silent> <space>tp :<C-u>CocCommand metals.tvp metalsPackages<CR>
 " Toggle Tree View 'metalsCompile'
-nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
+"nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
 " Toggle Tree View 'metalsBuild'
-nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
+"nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
 " Reveal current current class (trait or object) in Tree View 'metalsPackages'
-nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
+"nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
 
 " zoxide jump to directory
 nnoremap <silent> <leader>j :Zi<cr>
@@ -350,4 +367,6 @@ nnoremap <silent> <leader>j :Zi<cr>
 " => vim-gh-line
 """"""""""""""""""""""""""""""
 "let g:gh_open_command = 'open -a /Applications/Firefox.app '
+"let g:gh_line_map = '<leader>gh'
+"let g:gh_line_blame_map = '<leader>gb'
 let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '

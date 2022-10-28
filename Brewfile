@@ -76,6 +76,7 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 brew "pylint" # must be installed for vim-ale
 brew "python"
+brew "reattach-to-user-namespace"
 brew "redis"
 brew "ripgrep"
 brew "rsync"

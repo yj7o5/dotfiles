@@ -87,3 +87,6 @@ alias ber='TZ=Europe/Berlin date'
 alias nyc='TZ=America/New_York date'
 alias sfo='TZ=America/Los_Angeles date'
 alias utc='TZ=Etc/UTC date'
+
+alias rgf='rg --files | rg'
+alias rgg='rg -i'
