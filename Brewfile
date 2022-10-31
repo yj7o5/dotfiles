@@ -11,6 +11,7 @@ brew "bash-completion"
 brew "bat"
 brew "binwalk"
 brew "black"
+brew "btop"
 brew "cloc"
 brew "cmake"
 brew "coreutils" # must be installed for tmux network status plugin

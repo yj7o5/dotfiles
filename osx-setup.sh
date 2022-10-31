@@ -8,6 +8,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew tap Homebrew/bundle
 brew bundle
 
+# install language servers necessary for neovim LSP
+npm install typescript-language-server tailwindcss-language-server
+
 # rust
 curl https://sh.rustup.rs -sSf | sh
 
