@@ -1,15 +1,16 @@
-require('jayeve.base')
-require('jayeve.highlights')
-require('jayeve.maps')
-require('jayeve.plugins')
-
-local has = vim.fn.has
-local is_mac = has "macunix"
-local is_win = has "win32"
-
-if is_mac then
-  require('jayeve.macos')
-end
-if is_win then
-  require('jayeve.windows')
-end
+require("jayeve.plugins-setup")
+require("jayeve.core.options")
+require("jayeve.core.keymaps")
+require("jayeve.core.colorscheme")
+require("jayeve.plugins.comment")
+require("jayeve.plugins.nvim-tree")
+require("jayeve.plugins.lualine")
+require("jayeve.plugins.telescope")
+require("jayeve.plugins.nvim-cmp")
+require("jayeve.plugins.lsp.mason")
+require("jayeve.plugins.lsp.lspsaga")
+require("jayeve.plugins.lsp.lspconfig")
+require("jayeve.plugins.lsp.null-ls")
+require("jayeve.plugins.autopairs")
+--require("jayeve.plugins.treesitter")
+require("jayeve.plugins.gitsigns")
