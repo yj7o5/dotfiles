@@ -59,7 +59,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 	use({ "jvgrootveld/telescope-zoxide" }) -- fancy 'cd' command, z
-  use({'nvim-telescope/telescope-project.nvim'})
+	use({ "nvim-telescope/telescope-project.nvim" })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -100,9 +100,19 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+	use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" })
 
-	-- vim surround
-	use({ "tpope/vim-surround" })
+	-- vim-abolish: change snake-case to underscore_case or camelCase
+	use({ "tpope/vim-abolish" })
+
+	-- neoclip
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
+			{ "kkharji/sqlite.lua", module = "sqlite" },
+		},
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

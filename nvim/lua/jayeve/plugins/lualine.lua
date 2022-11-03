@@ -6,21 +6,22 @@ end
 
 -- get lualine nightfly theme
 local lualine_nightfly = require("lualine.themes.nightfly")
-local gruvbox = require("lualine.themes.gruvbox")
+-- local gruvbox = require("lualine.themes.gruvbox")
 
 -- new colors for theme
 local new_colors = {
 	blue = "#65D1FF",
-	green = "#3EFFDC",
+	green = "#33ff68",
 	violet = "#FF61EF",
 	yellow = "#FFDA7B",
 	black = "#000000",
+	purple = "af33ff",
 }
 
 -- change nightlfy theme colors
 lualine_nightfly.normal.a.bg = new_colors.blue
-lualine_nightfly.insert.a.bg = new_colors.green
-lualine_nightfly.visual.a.bg = new_colors.violet
+lualine_nightfly.insert.a.bg = new_colors.purple
+lualine_nightfly.visual.a.bg = new_colors.green
 lualine_nightfly.command = {
 	a = {
 		gui = "bold",
@@ -33,5 +34,8 @@ lualine_nightfly.command = {
 lualine.setup({
 	options = {
 		theme = lualine_nightfly,
+	},
+	sections = {
+		lualine_x = { "encoding", "fileformat", "filetype" },
 	},
 })

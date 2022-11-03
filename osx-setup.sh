@@ -59,4 +59,7 @@ cp .work_functions.zsh "$HOME/.work_functions.zsh"
 # misc
 yarn global add stylelint
 
+# nerd font setup -- https://www.josean.com/posts/terminal-setup
+curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coolnight.itermcolors --output ~/Downloads/coolnight.itermcolors
+
 source "$HOME/.zshrc"

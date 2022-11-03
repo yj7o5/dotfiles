@@ -55,5 +55,3 @@ vim.cmd([[
     set undofile
   endif
 ]])
--- vim.cmd([[set noswapfile]])
--- vim.cmd([[set undodir=~/.vim/temp_dirs/undodir]])
