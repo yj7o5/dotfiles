@@ -28,7 +28,7 @@ telescope.setup({
 			},
 		},
 	},
-	extension = {
+	extensions = {
 		zoxide = {
 			prompt_title = "[ Cd in directory (recentcy) ]",
 			mappings = {
@@ -68,6 +68,25 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
+		bookmarks = {
+			selected_browser = "firefox",
+			url_open_command = "open",
+		},
+		-- You don't need to set any of these options.
+		-- IMPORTANT!: this is only a showcase of how you can set default options!
+		file_browser = {
+			theme = "ivy",
+			-- disables netrw and use telescope-file-browser in its place
+			hijack_netrw = true,
+			mappings = {
+				-- ["i"] = {
+				-- 	-- your custom insert mode mappings
+				-- },
+				-- ["n"] = {
+				-- 	-- your custom normal mode mappings
+				-- },
+			},
+		},
 	},
 })
 
@@ -75,3 +94,6 @@ telescope.load_extension("fzf")
 telescope.load_extension("zoxide")
 telescope.load_extension("project")
 telescope.load_extension("neoclip")
+telescope.load_extension("bookmarks")
+telescope.load_extension("gh")
+telescope.load_extension("file_browser")

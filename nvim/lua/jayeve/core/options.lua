@@ -55,3 +55,6 @@ vim.cmd([[
     set undofile
   endif
 ]])
+
+-- no swapfiles
+vim.cmd([[set noswapfile]])

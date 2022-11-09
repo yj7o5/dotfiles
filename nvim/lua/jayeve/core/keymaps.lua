@@ -57,11 +57,7 @@ keymap.set("n", "<leader>h", "<cmd>Telescope oldfiles<cr>") -- list previously o
 keymap.set("n", "<leader>p", "<cmd>Telescope project<cr>") -- list projects, and cd into it
 keymap.set("n", "<leader>j", "<cmd>Telescope zoxide list<cr>") -- list projects by recentcy, using zoxide
 keymap.set("n", "<leader>y", "<cmd>Telescope neoclip<cr>") -- list yank history
-keymap.set(
-	"n",
-	"<leader>f",
-	"require'telescope.builtin'.grep_string{ shorten_path = true, word_match = \"-w\", only_sort_text = true, search = '' }"
-)
+keymap.set("n", "<leader>f", "<cmd>Telescope file_browser<cr>") -- open file file_browser switch to folder browser with ctrl-f
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]

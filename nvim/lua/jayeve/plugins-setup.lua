@@ -53,13 +53,45 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- statusline
-	use("nvim-lualine/lualine.nvim")
+	-- use("nvim-lualine/lualine.nvim")
+	use("vim-airline/vim-airline")
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-github.nvim" },
+		},
+		branch = "0.1.x",
+	})
+
 	use({ "jvgrootveld/telescope-zoxide" }) -- fancy 'cd' command, z
 	use({ "nvim-telescope/telescope-project.nvim" })
+
+	-- neoclip
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
+			{ "kkharji/sqlite.lua", module = "sqlite" },
+		},
+	})
+	use({ "tpope/vim-fugitive" })
+
+	-- web bookmarks
+	use({
+		"dhruvmanila/telescope-bookmarks.nvim",
+		tag = "*",
+		-- Uncomment if the selected browser is Firefox, Waterfox or buku
+		requires = {
+			"kkharji/sqlite.lua",
+		},
+	})
+
+	-- file browser
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -105,14 +137,9 @@ return packer.startup(function(use)
 	-- vim-abolish: change snake-case to underscore_case or camelCase
 	use({ "tpope/vim-abolish" })
 
-	-- neoclip
-	use({
-		"AckslD/nvim-neoclip.lua",
-		requires = {
-			{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
-			{ "kkharji/sqlite.lua", module = "sqlite" },
-		},
-	})
+	-- discord codeowners
+	use({ "discord/vim-codeowners" })
+	-- use {'krivahtoo/silicon.nvim', run = './install.sh'}
 
 	if packer_bootstrap then
 		require("packer").sync()
