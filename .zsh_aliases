@@ -90,3 +90,4 @@ alias utc='TZ=Etc/UTC date'
 
 alias rgf='rg --files | rg'
 alias rgg='rg -i'
+alias pre='rg --files | sk --preview="bat {} --color=always"'

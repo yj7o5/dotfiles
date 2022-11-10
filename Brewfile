@@ -2,76 +2,80 @@ tap "cue-lang/tap"
 tap "homebrew/cask"
 tap "jzelinskie/faq"
 tap "txn2/tap"
-brew "act"
-brew "autojump"
-brew "awscli"
-brew "axel"
-brew "azure-cli"
-brew "bash-completion"
-brew "bat"
-brew "binwalk"
-brew "black"
-brew "btop"
-brew "cloc"
-brew "cmake"
+brew "act" # github actions
+brew "autojump" # a smarter cd
+brew "awscli" # AWS cloud cli
+brew "axel" # a faster curl
+brew "azure-cli" # Azure cloud cli
+brew "bash-completion" # back shell tab completions
+brew "bat" # a more colorful 'cat' command
+brew "binwalk" # https://github.com/ReFirmLabs/binwalk
+brew "black" # python code formatter
+brew "broot" # a better 'tree' command
+brew "btop" # a more intuitive, prettier 'top' command
+brew "cloc" # statistics utility to count lines of code
+brew "cmake" # for building c code
 brew "coreutils" # must be installed for tmux network status plugin
-brew "cowsay"
+brew "cowsay" # a more stupid 'echo' command
 brew "ctags"
 brew "cue-lang/tap/cue"
-brew "curl"
+brew "curl" # use HTTP protocol from command line
 brew "diffstat"
 brew "entr"
-brew "exa"
-brew "ffmpeg"
-brew "fio"
-brew "flake8" # must be installed for vim-ale
+brew "exa" # a faster, prettier 'ls' command
+brew "ffmpeg" # modify media files (image, video, audio) from command line
+brew "fio" # io benchmark tool
+brew "flake8" # python linter (must be installed for vim-ale)
 brew "gawk" # must be installed for tmux network status plugin
-brew "gh"
-brew "git"
+brew "gh" # github command line extension
+brew "git" # the most important
 brew "git-crypt"
+brew "git-delta" # for prettier `git diff`
+brew "glances" # a prettier 'top' command (not as pretty as `htop` or `btop`)
 brew "gnu-sed"
-brew "go"
+brew "go" # the language, go-lang
 brew "golangci-lint"
 brew "goreman"
+brew "gping" # a prettier 'ping' command
 brew "http-prompt"
-brew "httpie"
-brew "htop"
+brew "httpie" # a more intuitive 'curl'
+brew "htop" # a prettier 'top'
 brew "hugo"
-brew "iftop"
+brew "iftop" # 'top' for network interfaces
 brew "imagemagick"
 brew "jpegoptim"
 brew "jzelinskie/faq/faq"
-brew "kind"
-brew "kubectx"
-brew "kubectl"
-brew "helm"
-brew "less"
-brew "lolcat"
+brew "kind" # something for kubernetes, idk
+brew "kubectx" # a wrapper around 'kubectl context' subcommands
+brew "kubectl" # cli for kubernetes API
+brew "helm" # cli for provisioning kubernetes resources
+brew "less" # a better pager
+brew "lolcat" # prettier 'cat' command
 brew "lua-language-server"
-brew "masscan"
+brew "masscan" # more aggressive network scanner (for hacking)
 brew "mediainfo"
-brew "mercurial"
-brew "mosh"
-brew "mitmproxy"
+brew "mercurial" # svn version control
+brew "mosh" # a more resliant ssh server over UDP
+brew "mitmproxy" # (for hacking)
 brew "mkcert"
-brew "mkcert"
-brew "mutt"
+brew "mutt" # SNMP mail client
 brew "neofetch"
-brew "neovim"
-brew "netcat"
-brew "nethogs"
+brew "neovim" # THE text editor
+brew "netcat" # network utility
+brew "nethogs" # network usage inspector
 brew "ninja"
-brew "nload"
-brew "nmap"
+brew "nload" # load testing tool
+brew "nmap" # network scanner
 brew "node"
 brew "nvm"
-brew "octant"
+brew "octant" # 'top' for kubernetes
 brew "optipng"
 brew "p7zip"
 brew "par"
 brew "parallel"
 brew "pkg-config"
 brew "pngcrush"
+brew "procs"
 brew "pstree"
 brew "psutils"
 brew "pyenv"
@@ -81,18 +85,18 @@ brew "python"
 brew "reattach-to-user-namespace"
 brew "redis"
 brew "ripgrep"
-brew "rsync"
+brew "rsync" # a better 'cp' command
 brew "shellcheck"
-brew "siege"
-brew "sk"
+brew "siege" # a load testing tool
+brew "sk" # skim: fuzzy finder in rust
 brew "sox"
 brew "spotify-tui"
-brew "sqlite"
+brew "sqlite" # database
 brew "subversion"
-brew "tcpdump"
-brew "telnet"
-brew "tmux"
-brew "tree"
+brew "tcpdump" # inspect network traffic
+brew "telnet" # ssh 1.0
+brew "tmux" # terminal multiplexor for long-lived sessions
+brew "tree" # file system explorer
 brew "txn2/tap/kubefwd"
 brew "upx"
 brew "vim"
