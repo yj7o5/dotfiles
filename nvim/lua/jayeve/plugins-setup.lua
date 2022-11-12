@@ -56,6 +56,9 @@ return packer.startup(function(use)
 	-- use("nvim-lualine/lualine.nvim")
 	use("vim-airline/vim-airline")
 
+  -- sqlite database used for a bunch of plugins
+  use { "kkharji/sqlite.lua" }
+
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({
@@ -92,6 +95,12 @@ return packer.startup(function(use)
 
 	-- file browser
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
+
+	-- search files by frecency
+	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		requires = { "kkharji/sqlite.lua" },
+	})
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -138,9 +147,8 @@ return packer.startup(function(use)
 	use({ "tpope/vim-abolish" })
 
 	-- discord codeowners
-	use({ "discord/vim-codeowners" })
+	-- use({ "discord/vim-codeowners" })
 	-- use {'krivahtoo/silicon.nvim', run = './install.sh'}
-
 	if packer_bootstrap then
 		require("packer").sync()
 	end
