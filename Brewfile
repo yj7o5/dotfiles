@@ -97,6 +97,7 @@ brew "tcpdump" # inspect network traffic
 brew "telnet" # ssh 1.0
 brew "tldr" # a different man pages
 brew "tmux" # terminal multiplexor for long-lived sessions
+brew "tmux-mem-cpu-load" # terminal multiplexor for long-lived sessions
 brew "tree" # file system explorer
 brew "txn2/tap/kubefwd" # expose kubernetes (K8s) service for local development
 brew "upx" # compress/expand executable files
