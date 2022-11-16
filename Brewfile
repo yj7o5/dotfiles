@@ -18,7 +18,7 @@ brew "cmake" # for building c code
 brew "coreutils" # must be installed for tmux network status plugin
 brew "cowsay" # a more stupid 'echo' command
 brew "ctags" # generate an index file of language objects for a file
-brew "cue-lang/tap/cue" evaluate CUE files
+brew "cue-lang/tap/cue" # evaluate CUE files
 brew "curl" # use HTTP protocol from command line
 brew "diffstat" # make histogram of diff-output
 brew "entr" # run arbitrary commands when files change
