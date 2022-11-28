@@ -36,6 +36,7 @@ return packer.startup(function(use)
 	use("ellisonleao/gruvbox.nvim") -- preferred colorscheme
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	use("declancm/windex.nvim") -- maximize vim pane in tmux window
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
@@ -56,8 +57,8 @@ return packer.startup(function(use)
 	-- use("nvim-lualine/lualine.nvim")
 	use("vim-airline/vim-airline")
 
-  -- sqlite database used for a bunch of plugins
-  use { "kkharji/sqlite.lua" }
+	-- sqlite
+	use({ "kkharji/sqlite.lua" })
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -96,7 +97,7 @@ return packer.startup(function(use)
 	-- file browser
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-	-- search files by frecency
+	-- frecency
 	use({
 		"nvim-telescope/telescope-frecency.nvim",
 		requires = { "kkharji/sqlite.lua" },

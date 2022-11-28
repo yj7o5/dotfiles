@@ -44,6 +44,9 @@ keymap.set("n", "<leader>=", "<C-w>=") --  equalize windows
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
+-- windex vim split maximizer
+keymap.set("n", "<leader>l", "<cmd>lua require('windex').toggle_maximize()<cr>") -- toggle split window maximization
+
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
@@ -58,7 +61,7 @@ keymap.set("n", "<leader>p", "<cmd>Telescope project<cr>") -- list projects, and
 keymap.set("n", "<leader>j", "<cmd>Telescope zoxide list<cr>") -- list projects by recentcy, using zoxide
 keymap.set("n", "<leader>y", "<cmd>Telescope neoclip<cr>") -- list yank history
 keymap.set("n", "<leader>f", "<cmd>Telescope file_browser<cr>") -- open file file_browser switch to folder browser with ctrl-f
-keymap.set("n", "<leader>k", "<cmd>Telescope frecency<cr>") -- open file by frecency
+keymap.set("n", "<leader>k", "<cmd>Telescope frecency<cr>") -- file frecency
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
