@@ -52,6 +52,7 @@ brew "helm" # cli for provisioning kubernetes resources
 brew "less" # a better pager
 brew "lolcat" # prettier 'cat' command
 brew "lua-language-server" # LSP for Lua
+brew "martensson/tpm/tpm" # tmux plugin manager
 brew "masscan" # more aggressive network scanner (for hacking)
 brew "mediainfo" # get metadata from video & audio files
 brew "mercurial" # svn version control

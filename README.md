@@ -31,3 +31,9 @@ sudo apt-get install neovim
 # TODO
 
 - use antigen: https://phuctm97.com/blog/zsh-antigen-ohmyzsh
+
+## Karabiner complex key commands
+
+- https://ke-complex-modifications.pqrs.org/?q=media%20keys (set fn keys to media keys by default)
+- switch colon with semicolon
+- swith left/right option with left/right command (windows mode)
