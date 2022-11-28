@@ -86,7 +86,7 @@ set -g message-style bg='#44475a',fg='#8be9fd'
 set -g status-interval 1
 set -g status-justify centre # center align window list
 set -g status-left-length 100
-set -g status-left '#[fg=black,bold]#(sw_vers -productName) v#(sw_vers -productVersion) • #(ipconfig getifaddr en0)#[fg=black] • #[fg=black]#(tmux-mem-cpu-load --interval 1)#[default]'
+set -g status-left '#[fg=black]#(sw_vers -productName) v#(sw_vers -productVersion) • #(ipconfig getifaddr en0)#[fg=black] • #[fg=black]#(tmux-mem-cpu-load --interval 1)#[default]'
 set -g status-right-length 140
 set -g status-right '#[fg=black]#{network_bandwidth} #[fg=black]• uptime: #(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") • #[fg=black]%a %H:%M:%S %p#[default] #[fg=black]%b-%d-%Y'
 set -g status-keys vi

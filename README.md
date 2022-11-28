@@ -34,6 +34,6 @@ sudo apt-get install neovim
 
 ## Karabiner complex key commands
 
-- https://ke-complex-modifications.pqrs.org/?q=media%20keys (set fn keys to media keys by default)
+- https://ke-complex-modifications.pqrs.org/?q=media%20keys (Standard media control keys using the fn key)
 - switch colon with semicolon
 - swith left/right option with left/right command (windows mode)
