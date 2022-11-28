@@ -2,6 +2,7 @@ tap "cue-lang/tap"
 tap "homebrew/cask"
 tap "jzelinskie/faq"
 tap "txn2/tap"
+tap "homebrew/cask-fonts"
 brew "act" # github actions
 brew "autojump" # a smarter cd
 brew "awscli" # AWS cloud cli
@@ -116,5 +117,6 @@ cask "anki" # a notecard app
 cask "karabiner-elements" # keyboard key configuration app
 cask "rectangle" # a manual tiling window manager
 cask "iterm2" # a better version of MacOS Terminal
+cask "font-hack-nerd-font" # more icons in my font
 #cask "spotify" # music app
 #https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
