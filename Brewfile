@@ -14,6 +14,7 @@ brew "binwalk" # https://github.com/ReFirmLabs/binwalk
 brew "black" # python code formatter
 brew "broot" # a better 'tree' command
 brew "btop" # a more intuitive, prettier 'top' command
+brew "cheat" # different man page/cheat sheet tool
 brew "cloc" # statistics utility to count lines of code
 brew "cmake" # for building c code
 brew "coreutils" # must be installed for tmux network status plugin
@@ -97,6 +98,7 @@ brew "sqlite" # database
 brew "subversion" # source control
 brew "tcpdump" # inspect network traffic
 brew "telnet" # ssh 1.0
+brew "tig" # interactive 'git log' cli tool
 brew "tldr" # a different man pages
 brew "tmux" # terminal multiplexor for long-lived sessions
 brew "tmux-mem-cpu-load" # terminal multiplexor for long-lived sessions
@@ -112,11 +114,13 @@ brew "youtube-dl" # media file downloader
 brew "zoxide" # a better 'cd' command, and better than autojump
 brew "zsh" # default MacOS shell
 brew "zstd" # Zstandard compression
+cask "1password" # password manager
 cask "amethyst" # a shitty automatic tiling window manager
 cask "anki" # a notecard app
 cask "karabiner-elements" # keyboard key configuration app
 cask "rectangle" # a manual tiling window manager
 cask "iterm2" # a better version of MacOS Terminal
 cask "font-hack-nerd-font" # more icons in my font
-#cask "spotify" # music app
+cask "spotify" # music app
+cask "visual-studio-code" # vs code
 #https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
