@@ -25,6 +25,7 @@ brew "curl" # use HTTP protocol from command line
 brew "diffstat" # make histogram of diff-output
 brew "entr" # run arbitrary commands when files change
 brew "exa" # a faster, prettier 'ls' command
+brew "fd" # a faster, more intuitive 'find' command
 brew "ffmpeg" # modify media files (image, video, audio) from command line
 brew "fio" # io benchmark tool
 brew "flake8" # python linter (must be installed for vim-ale)
@@ -85,6 +86,7 @@ brew "pyenv" # python environment utility
 brew "pyenv-virtualenv" # python environment utility
 brew "pylint" # must be installed for vim-ale
 brew "python" # a slow computer programming language
+brew "pv" # monitor progress
 brew "reattach-to-user-namespace"
 brew "redis" # in-memory cache
 brew "ripgrep" # a faster 'grep'
@@ -121,6 +123,7 @@ cask "karabiner-elements" # keyboard key configuration app
 cask "rectangle" # a manual tiling window manager
 cask "iterm2" # a better version of MacOS Terminal
 cask "font-hack-nerd-font" # more icons in my font
+cask "skitch" # a better preview
 cask "spotify" # music app
 cask "visual-studio-code" # vs code
 #https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
