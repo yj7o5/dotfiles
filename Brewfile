@@ -53,6 +53,7 @@ brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
 brew "helm" # cli for provisioning kubernetes resources
 brew "less" # a better pager
+brew "loc" # lines of code
 brew "lolcat" # prettier 'cat' command
 brew "lua-language-server" # LSP for Lua
 brew "martensson/tpm/tpm" # tmux plugin manager
@@ -120,6 +121,7 @@ cask "1password" # password manager
 cask "amethyst" # a shitty automatic tiling window manager
 cask "anki" # a notecard app
 cask "karabiner-elements" # keyboard key configuration app
+cask "macdown" # Markdown text editor
 cask "rectangle" # a manual tiling window manager
 cask "iterm2" # a better version of MacOS Terminal
 cask "font-hack-nerd-font" # more icons in my font
