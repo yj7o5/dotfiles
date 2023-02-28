@@ -88,6 +88,7 @@ brew "pyenv-virtualenv" # python environment utility
 brew "pylint" # must be installed for vim-ale
 brew "python" # a slow computer programming language
 brew "pv" # monitor progress
+brew "react-native-cli"
 brew "reattach-to-user-namespace"
 brew "redis" # in-memory cache
 brew "ripgrep" # a faster 'grep'
@@ -114,6 +115,7 @@ brew "wget" # download from internet
 brew "xz" # compress/decompress files
 brew "yarn" # idk which yarn this is: either javascript or distributed data compute tool
 brew "youtube-dl" # media file downloader
+brew "yt-dlp" # media file downloader
 brew "zoxide" # a better 'cd' command, and better than autojump
 brew "zsh" # default MacOS shell
 brew "zstd" # Zstandard compression
