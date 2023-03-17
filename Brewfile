@@ -2,8 +2,10 @@ tap "cue-lang/tap"
 tap "homebrew/cask"
 tap "jzelinskie/faq"
 tap "txn2/tap"
+tap "xwmx/taps"
 tap "homebrew/cask-fonts"
 brew "act" # github actions
+brew "airport" # wireless network scanner
 brew "autojump" # a smarter cd
 brew "awscli" # AWS cloud cli
 brew "axel" # a faster curl
