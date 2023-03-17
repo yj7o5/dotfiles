@@ -123,6 +123,7 @@ brew "zsh" # default MacOS shell
 brew "zstd" # Zstandard compression
 cask "1password" # password manager
 cask "amethyst" # a shitty automatic tiling window manager
+cask "android-platform-tools" # android dev tools
 cask "anki" # a notecard app
 cask "karabiner-elements" # keyboard key configuration app
 cask "macdown" # Markdown text editor
