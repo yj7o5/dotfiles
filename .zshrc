@@ -79,3 +79,6 @@ fdd() {
   local __dir
   __file=$(fzf +m -q "$1") && __dir=$(dirname "$__file") && cd "$__dir"
 }
+
+# airport network utility
+ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport

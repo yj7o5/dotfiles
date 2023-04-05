@@ -42,3 +42,15 @@ sudo apt-get install neovim
 - https://ke-complex-modifications.pqrs.org/?q=media%20keys (Standard media control keys using the fn key)
 - switch colon with semicolon
 - swith left/right option with left/right command (windows mode)
+
+# Network Uilities
+
+```
+sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+```
+
+## Work (coder)
+
+- Check nvim version with `nvim --version` and make sure you're on nvim 0.5.0+. this typically requires a non-standard installation (different apt repository)
+- make sure `home/discord/.config/nvim` is tracking this upstream source. If not, delete it and run `git clone git@github.com:discord/discord`.
+- open `/home/discord/.config/nvim/lua/jayeve/plugins-setup.lua`, change something, and save. This will force an install of all plugins

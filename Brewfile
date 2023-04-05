@@ -5,7 +5,7 @@ tap "txn2/tap"
 tap "xwmx/taps"
 tap "homebrew/cask-fonts"
 brew "act" # github actions
-brew "airport" # wireless network scanner
+#brew "airport" # wireless network scanner
 brew "autojump" # a smarter cd
 brew "awscli" # AWS cloud cli
 brew "axel" # a faster curl
@@ -16,6 +16,7 @@ brew "binwalk" # https://github.com/ReFirmLabs/binwalk
 brew "black" # python code formatter
 brew "broot" # a better 'tree' command
 brew "btop" # a more intuitive, prettier 'top' command
+brew "ccls" # LSP server for C++/C
 brew "cheat" # different man page/cheat sheet tool
 brew "cloc" # statistics utility to count lines of code
 brew "cmake" # for building c code
@@ -25,6 +26,7 @@ brew "ctags" # generate an index file of language objects for a file
 brew "cue-lang/tap/cue" # evaluate CUE files
 brew "curl" # use HTTP protocol from command line
 brew "diffstat" # make histogram of diff-output
+brew "docker-compose" # make histogram of diff-output
 brew "entr" # run arbitrary commands when files change
 brew "exa" # a faster, prettier 'ls' command
 brew "fd" # a faster, more intuitive 'find' command
