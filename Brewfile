@@ -97,6 +97,7 @@ brew "reattach-to-user-namespace"
 brew "redis" # in-memory cache
 brew "ripgrep" # a faster 'grep'
 brew "rsync" # a better 'cp' command
+brew "rustscan" # a modern port scanner
 brew "shellcheck" # shell script static analyzer
 brew "siege" # a load testing tool
 brew "sk" # skim: fuzzy finder in rust

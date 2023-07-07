@@ -1,5 +1,9 @@
 # J's dotfiles setup for a Ubuntu 18.04 machine
 
+## TODO
+
+- Add `airport` and `ping` to tmux bar
+
 ## Installation Notes
 
 - The `personalize` script in coder isn't running `chown` correctly, so you must run manually after jumping on the box
@@ -47,6 +51,12 @@ sudo apt-get install neovim
 
 ```
 sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+```
+
+run it
+
+```
+airport --scan | tail -n +2 | awk -F' {2,}' '{print $3, $2}' |sort
 ```
 
 ## Work (coder)
