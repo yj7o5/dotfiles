@@ -131,6 +131,7 @@ cask "anki" # a notecard app
 cask "karabiner-elements" # keyboard key configuration app
 cask "macdown" # Markdown text editor
 cask "rectangle" # a manual tiling window manager
+cask "inkscape" # for building keycap legends
 cask "iterm2" # a better version of MacOS Terminal
 cask "font-hack-nerd-font" # more icons in my font
 cask "skitch" # a better preview
