@@ -27,6 +27,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## NVIM Installation
 
+- in nvim, run 'TSInstall python'
+
 - make sure you're on Neovim v 0.8 +
 
 ```bash
