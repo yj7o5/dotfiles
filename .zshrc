@@ -81,4 +81,10 @@ fdd() {
 }
 
 # airport network utility
-ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
+sys_name==$(uname -s)
+if [[ $sys_name == "Darwin" ]]; then
+  ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
+elif [[ $sys_name == "Linux" ]]; then
+  echo "airport not supported on Linux" 
+else
+  echo "Unknown system. sorry Windows"

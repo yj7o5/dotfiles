@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
 [user]
   name = J Evans
   email = 10482250+jayeve@users.noreply.github.com

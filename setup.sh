@@ -1,35 +1,26 @@
 #!/bin/zsh
 # helper functions
+# works on Ubuntu 22.04
 
 set -e
 eval $(ssh-agent -s)
 
 # install pacakges
-add-apt-repository -y ppa:jonathonf/vim && apt-get update -yqq
-DEBIAN_FRONTEND=noninteractive xargs apt-get install -yqq <apt-requirements.txt
+DEBIAN_FRONTEND=noninteractive xargs apt-get install -yq <apt-requirements.txt
 
-# vim configs + install
-rm -rf ~/.vim
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/temp_dirs/undodir
-cp vim-configs/my_configs.vim $HOME/.vim/
-cp vim-configs/plugin_configs.vim $HOME/.vim/
-cp vim-configs/vimrc $HOME/.vimrc
-vim +PlugInstall +qall
+# enable fd
+ln -s $(which fdfind) /usr/local/bin/fd
 
-# ripgrep
-RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[0-9.]+')
-curl -Lo ripgrep.deb "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep_${RIPGREP_VERSION}_amd64.deb"
-dpkg -i ripgrep.deb
-rm ripgrep.deb
+# git
+cp .gitconfig "$HOME/.gitconfig"
+
+# nvim configs + install
+git clone git@github.com:jayeve/nvim.git $HOME/.config/nvim
 
 # fzf
 rm -rf "$HOME/.fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install --all
-
-# git
-cp .gitconfig "$HOME/.gitconfig"
 
 # zsh configs + install
 chsh -s $(which zsh)
@@ -47,12 +38,8 @@ cp .zshrc "$HOME/.zshrc"
 cp .zprofile "$HOME/.zprofile"
 cp .zsh_aliases "$HOME/.zsh_aliases"
 
-# zoxide
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
 # tmux
-cp .tmux.conf "$HOME/.tmux.conf"
-[ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
+cp .tmux.conf "$HOME/.tmux.conf" && [ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 # helpful functions
 cp .work_functions.zsh "$HOME/.work_functions.zsh"
