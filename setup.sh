@@ -5,6 +5,9 @@
 set -e
 eval $(ssh-agent -s)
 
+# neovim
+add-apt-repository ppa:neovim-ppa/unstable
+
 # install pacakges
 DEBIAN_FRONTEND=noninteractive xargs apt-get install -yq <apt-requirements.txt
 

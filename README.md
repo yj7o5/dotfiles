@@ -1,4 +1,4 @@
-# J's dotfiles setup for a Ubuntu 18.04 machine
+# J's dotfiles setup for a Ubuntu 22.04 machine
 
 ## TODO
 
