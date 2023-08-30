@@ -27,6 +27,15 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## NVIM Installation
 
+- nvim 0.10.0 doesn't seem to work as of Aug 2023, so try installing 0.9.1 [via appimage](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
+```bash
+cd ~
+curl -LO https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
+chmod u+x nvim.appimage && ./nvim.appimage --appimage-extract
+echo alias nvim="~/squashfs-root/usr/bin/nvim" >> ~/.zsh_aliases
+```
+
 - in nvim, run 'TSInstall python'
 
 - make sure you're on Neovim v 0.8 +

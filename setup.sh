@@ -5,8 +5,6 @@
 set -e
 eval $(ssh-agent -s)
 
-# neovim
-add-apt-repository ppa:neovim-ppa/unstable
 
 # install pacakges
 DEBIAN_FRONTEND=noninteractive xargs apt-get install -yq <apt-requirements.txt
@@ -40,6 +38,13 @@ cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
 cp .zshrc "$HOME/.zshrc"
 cp .zprofile "$HOME/.zprofile"
 cp .zsh_aliases "$HOME/.zsh_aliases"
+
+# neovim
+# add-apt-repository ppa:neovim-ppa/unstable
+curl -LO https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
+chmod u+x nvim.appimage && ./nvim.appimage --appimage-extract
+mv nvim.appimage $HOME/nvim.appimage
+echo alias nvim="~/squashfs-root/usr/bin/nvim" >> ~/.zsh_aliases
 
 # tmux
 cp .tmux.conf "$HOME/.tmux.conf" && [ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins

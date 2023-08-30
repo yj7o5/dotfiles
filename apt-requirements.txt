@@ -21,7 +21,6 @@ kubectl
 less
 masscan
 mosh
-neovim
 net-tools
 netcat
 nethogs
