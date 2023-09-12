@@ -33,7 +33,7 @@ plugins=(
   docker
   docker-compose
   fzf
-  fzf-tab
+  # fzf-tab
   k
   zsh-autosuggestions
   fast-syntax-highlighting
