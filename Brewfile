@@ -100,6 +100,7 @@ brew "rsync" # a better 'cp' command
 brew "rustscan" # a modern port scanner
 brew "shellcheck" # shell script static analyzer
 brew "siege" # a load testing tool
+brew "silicon" # take screenshots of code
 brew "sk" # skim: fuzzy finder in rust
 brew "sox" # Sound eXchange: play, record and convert audio files.
 brew "spotify-tui" # put spotify controls in tmux
