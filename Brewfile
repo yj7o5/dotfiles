@@ -27,6 +27,7 @@ brew "cue-lang/tap/cue" # evaluate CUE files
 brew "curl" # use HTTP protocol from command line
 brew "diffstat" # make histogram of diff-output
 brew "docker-compose" # make histogram of diff-output
+brew "dust" # better df -h
 brew "entr" # run arbitrary commands when files change
 brew "exa" # a faster, prettier 'ls' command
 brew "fd" # a faster, more intuitive 'find' command
@@ -98,6 +99,8 @@ brew "redis" # in-memory cache
 brew "ripgrep" # a faster 'grep'
 brew "rsync" # a better 'cp' command
 brew "rustscan" # a modern port scanner
+brew "sbt" # simple build tool (scala)
+brew "scala" # the best
 brew "shellcheck" # shell script static analyzer
 brew "siege" # a load testing tool
 brew "silicon" # take screenshots of code

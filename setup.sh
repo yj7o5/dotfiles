@@ -1,6 +1,11 @@
 #!/bin/zsh
 # helper functions
 # works on Ubuntu 22.04
+sys_name=$(uname -s)
+if [[ $sys_name == "Darwin" ]]; then
+  echo 'only run this script on a Linux distro. This is a MacOS distro. rerun ./osx-setup.sh'
+  exit 1
+fi
 
 set -e
 eval $(ssh-agent -s)

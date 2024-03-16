@@ -14,15 +14,6 @@ npm install typescript-language-server tailwindcss-language-server
 # rust
 curl https://sh.rustup.rs -sSf | sh
 
-# vim configs + install
-rm -rf ~/.vim
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/temp_dirs/undodir
-cp vim-configs/my_configs.vim $HOME/.vim/
-cp vim-configs/plugin_configs.vim $HOME/.vim/
-cp vim-configs/vimrc $HOME/.vimrc
-vim +PlugInstall +qall
-
 # fzf
 rm -rf "$HOME/.fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
@@ -50,14 +41,14 @@ cp .zsh_aliases "$HOME/.zsh_aliases"
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 # tmux
-cp .tmux.conf "$HOME/.tmux.conf"
+cp .tmux.conf.osx "$HOME/.tmux.conf"
 [ ! -d "$HOME/.tmux" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 # helpful functions
 cp .work_functions.zsh "$HOME/.work_functions.zsh"
 
-# misc
-yarn global add stylelint
+# # misc
+# yarn global add stylelint
 
 # nerd font setup -- https://www.josean.com/posts/terminal-setup
 curl https://raw.githubusercontent.com/josean-dev/dev-environment-files/main/coolnight.itermcolors --output ~/Downloads/coolnight.itermcolors

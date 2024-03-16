@@ -21,7 +21,6 @@ bind-key : command-prompt
 bind-key r refresh-client
 bind-key L clear-history
 
-bind-key space next-window
 bind-key bspace previous-window
 bind-key enter next-layout
 
@@ -45,8 +44,7 @@ is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     bind-key -T copy-mode-vi C-k select-pane -U
     bind-key -T copy-mode-vi C-l select-pane -R
 
-# bind-key space split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
-bind-key space display-popup -E "\
+bind-key a display-popup -E "\
     tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
     sed '/^$/d' |\
     fzf --reverse --header jump-to-session --preview 'tmux capture-pane -pt {}' |\
@@ -62,7 +60,6 @@ set-window-option -g other-pane-width 80
 set-window-option -g display-panes-time 1500
 set-window-option -g window-status-current-style fg=black,bold
 
-bind-key a last-pane
 bind-key q display-panes
 bind-key c new-window
 bind-key t next-window
@@ -109,6 +106,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'xamut/tmux-network-bandwidth'
 set -g @plugin 'xamut/tmux-spotify'
+set -g @plugin 'alexwforsythe/tmux-which-key'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
