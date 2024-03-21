@@ -108,6 +108,7 @@ brew "sk" # skim: fuzzy finder in rust
 brew "sox" # Sound eXchange: play, record and convert audio files.
 brew "spotify-tui" # put spotify controls in tmux
 brew "sqlite" # database
+brew "stow" # symlink manager (for dotfiles)
 brew "subversion" # source control
 brew "tcpdump" # inspect network traffic
 brew "telnet" # ssh 1.0
