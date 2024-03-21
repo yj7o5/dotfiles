@@ -3,14 +3,15 @@ function extend_path() {
   [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
 }
 
+# default editor
+export EDITOR=$(which nvim)
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # source a script, if it exists
 function source_if_exists() { [[ -s $1 ]] && source $1 || true }
 
 # profile startup
 zmodload zsh/zprof
-
-# default editor
-export EDITOR=$(which nvim)
 
 # less
 export PAGER='less'
@@ -97,6 +98,7 @@ function ff {
   fi
 }
 
+
 # airport network utility
 sys_name==$(uname -s)
 if [[ $sys_name == "Darwin" ]]; then
@@ -105,3 +107,4 @@ elif [[ $sys_name == "Linux" ]]; then
   echo "airport not supported on Linux" 
 else
   echo "Unknown system. sorry Windows"
+fi

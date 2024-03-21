@@ -5,16 +5,39 @@
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #npm config set prefix $NVM_DIR/versions/node/v10.13.0
 
+function ff {
+  result=$(rg --ignore-case --color=always --line-number --no-heading "$@" |
+    fzf --ansi \
+        --color 'hl:-1:underline,hl+:-1:underline:reverse' \
+        --delimiter ':' \
+        --preview "bat --color=always {1} --theme='Solarized (light)' --highlight-line {2}" \
+        --preview-window 'up,60%,border-bottom,+{2}+3/3,~3')
+  file=${result%%:*}
+  linenumber=$(echo "${result}" | cut -d: -f2)
+  if [[ -n "$file" ]]; then
+          $EDITOR +"${linenumber}" "$file"
+  fi
+}
+
 # helpful util for jumping into sbt REPL
 function prj {
-  local base=$HOME/discord
+  local base=$HOME/cloudflare
   if [ ! -d "$base" ]; then
+    echo "creating $base"
     mkdir $base
   fi
-  local project=$1
-  local project_dir=$base/$project
+  local team=$1
+  local team_dir=$base/$team
+  if [ ! -d "$team_dir" ]; then
+    echo "creating $team_dir"
+    mkdir -p $team_dir
+  fi
+  local project=$2
+  local project_dir=$base/$team/$project
+  echo "project_dir: $project_dir\nteam_dir: $team_dir"
   if [ ! -d "$project_dir" ]; then
-    cd $base && git clone git@github.com:discord/$project.git
+    echo "cloning $project into $team_dir"
+    cd $team_dir && git clone ssh://git@bitbucket.cfdata.org:7999/$team/$project.git
   fi
 
   cd $project_dir
@@ -23,7 +46,7 @@ function prj {
 _prj() {
     local cur opts
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=$(cd $HOME/discord ; ls)
+    opts=$(cd $HOME/cloudflare ; ls)
     COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 }
 complete -F _prj prj
@@ -37,7 +60,7 @@ if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
 fi
 
 function dev {
-  prj discord
+  prj cloudflare
   tmux new-session -d
   tmux split-window -h
   tmux split-window -v

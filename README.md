@@ -6,6 +6,13 @@
 
 ## Installation Notes
 
+- [macos] Make sure you place the j.zsh-theme in `$HOME/.oh-my-zsh/themes/j.zsh-theme`
+- [macos] Use the `stow` command to set up dotfiles
+
+```bash
+/Users/jevans/dotfiles$ stow .
+```
+
 - [linux] The `personalize` script in coder isn't running `chown` correctly, so you must run manually after jumping on the box
 
 ```bash
