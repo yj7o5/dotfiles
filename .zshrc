@@ -9,6 +9,9 @@ function source_if_exists() { [[ -s $1 ]] && source $1 || true }
 # profile startup
 zmodload zsh/zprof
 
+# default editor
+export EDITOR=$(which nvim)
+
 # less
 export PAGER='less'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
@@ -78,6 +81,20 @@ fdd() {
   local __file
   local __dir
   __file=$(fzf +m -q "$1") && __dir=$(dirname "$__file") && cd "$__dir"
+}
+
+function ff {
+  result=$(rg --ignore-case --color=always --line-number --no-heading "$@" |
+    fzf --ansi \
+        --color 'hl:-1:underline,hl+:-1:underline:reverse' \
+        --delimiter ':' \
+        --preview "bat --color=always {1} --theme='Solarized (light)' --highlight-line {2}" \
+        --preview-window 'up,60%,border-bottom,+{2}+3/3,~3')
+  file=${result%%:*}
+  linenumber=$(echo "${result}" | cut -d: -f2)
+  if [[ -n "$file" ]]; then
+          $EDITOR +"${linenumber}" "$file"
+  fi
 }
 
 # airport network utility

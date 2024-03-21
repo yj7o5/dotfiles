@@ -26,6 +26,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ./install.sh
 ```
 
+## ITerm2
+
+To allow for yanking in tmux vim mode (Ctrl-a + [), go to Settings -> General -> Selection -> Applications in Terminal may access clipboard
+
 ## NVIM Installation
 
 - nvim 0.10.0 doesn't seem to work as of Aug 2023, so try installing 0.9.1 [via appimage](https://github.com/neovim/neovim/wiki/Installing-Neovim)

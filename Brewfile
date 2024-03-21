@@ -78,6 +78,7 @@ brew "nload" # load testing tool
 brew "nmap" # network scanner
 brew "node" # something for javascript
 brew "nvm" # node version manager
+brew "obsidian" # note taking app
 brew "octant" # 'top' for kubernetes
 brew "optipng" # PNG file optimization utility
 brew "p7zip" # 7-Zip file archiver
