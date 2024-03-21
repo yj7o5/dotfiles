@@ -6,6 +6,7 @@ tap "xwmx/taps"
 tap "homebrew/cask-fonts"
 brew "act" # github actions
 #brew "airport" # wireless network scanner
+brew "alacritty" # terminal in rust, easier to configure
 brew "autojump" # a smarter cd
 brew "awscli" # AWS cloud cli
 brew "axel" # a faster curl
@@ -57,6 +58,7 @@ brew "kind" # something for kubernetes, idk
 brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
 brew "helm" # cli for provisioning kubernetes resources
+brew "lazygit" # git tui
 brew "less" # a better pager
 brew "loc" # lines of code
 brew "lolcat" # prettier 'cat' command
@@ -139,7 +141,9 @@ cask "macdown" # Markdown text editor
 cask "rectangle" # a manual tiling window manager
 cask "inkscape" # for building keycap legends
 cask "iterm2" # a better version of MacOS Terminal
+cask "font-fira-code" # more icons in my font
 cask "font-hack-nerd-font" # more icons in my font
+cask "font-jetbrains-mono-nerd-font" # more icons in my font
 cask "skitch" # a better preview
 cask "spotify" # music app
 cask "visual-studio-code" # vs code

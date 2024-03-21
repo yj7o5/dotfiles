@@ -50,10 +50,7 @@ lazy.setup({
 	-- Theme plugins
 	{ "yeddaif/neovim-purple" },
 	{ "kyazdani42/nvim-web-devicons" }, -- vs-code like icons
-	{ "Rigellute/shades-of-purple.vim" },
 	{ "ellisonleao/gruvbox.nvim" }, -- preferred colorscheme
-	{ "Mofiqul/dracula.nvim" }, -- purple-ish
-	{ "folke/tokyonight.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
 	{ "MunifTanjim/nui.nvim" }, -- component library
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
@@ -168,7 +165,7 @@ lazy.setup({
 	-- use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
 	-- git integration
-	{ "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
+	-- { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
 	{ "ruifm/gitlinker.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
 	-- vim-abolish: change snake-case to underscore_case or camelCase
@@ -223,7 +220,7 @@ require("jayeve.plugins.lsp.null-ls")
 require("jayeve.plugins.autopairs")
 require("jayeve.plugins.gitlinker")
 require("jayeve.plugins.treesitter")
-require("jayeve.plugins.gitsigns")
+-- require("jayeve.plugins.gitsigns")
 require("jayeve.plugins.neoclip")
 require("jayeve.plugins.rust-tools")
 require("jayeve.plugins.rust-lang")
@@ -234,8 +231,8 @@ require("jayeve.plugins.leap")
 require("jayeve.plugins.harpoon")
 require("jayeve.plugins.bufferline")
 require("jayeve.plugins.glow")
+require("jayeve.plugins.zenmode")
 require("jayeve.plugins.obsidian")
 require("jayeve.utils")
 
--- require("jayeve.plugins.zenmode")
 -- require("jayeve.plugins.coc")

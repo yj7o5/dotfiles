@@ -1,4 +1,5 @@
 nvim/backups
+.config/nvim/backups/
 **/node_modules/**
 *.class
 *.dll
