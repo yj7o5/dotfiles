@@ -11,9 +11,11 @@ zenmode.setup({
 	on_open = function(_)
 		vim.fn.system([[tmux set status off]])
 		vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])
+		vim.opt.scl = "no"
 	end,
 	on_close = function(_)
 		vim.fn.system([[tmux set status on]])
 		vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z]])
+		vim.opt.scl = "yes"
 	end,
 })
