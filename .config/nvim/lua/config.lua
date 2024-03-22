@@ -165,7 +165,7 @@ lazy.setup({
 	-- use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
 	-- git integration
-	-- { "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
+	{ "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
 	{ "ruifm/gitlinker.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
 	-- vim-abolish: change snake-case to underscore_case or camelCase
@@ -220,7 +220,7 @@ require("jayeve.plugins.lsp.null-ls")
 require("jayeve.plugins.autopairs")
 require("jayeve.plugins.gitlinker")
 require("jayeve.plugins.treesitter")
--- require("jayeve.plugins.gitsigns")
+require("jayeve.plugins.gitsigns")
 require("jayeve.plugins.neoclip")
 require("jayeve.plugins.rust-tools")
 require("jayeve.plugins.rust-lang")

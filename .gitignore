@@ -1,5 +1,6 @@
 nvim/backups
 .config/nvim/backups/
+.config/nvim/lazy-lock.json
 **/node_modules/**
 *.class
 *.dll
