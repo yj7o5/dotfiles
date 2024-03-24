@@ -1,6 +1,6 @@
-nvim/backups
-.config/nvim/backups/
-.config/nvim/lazy-lock.json
+!.config/nvim
+!.config/alacritty
+.config
 **/node_modules/**
 *.class
 *.dll
