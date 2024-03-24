@@ -1,6 +1,8 @@
+.config/*
+.config/nvim/backups
 !.config/nvim
 !.config/alacritty
-.config
+!.config/karabiner
 **/node_modules/**
 *.class
 *.dll
@@ -24,4 +26,3 @@ ehthumbs.db
 id_rsa
 id_ed25519
 Brewfile.lock.json
-.config/htop
