@@ -7,6 +7,10 @@ function extend_path() {
 export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# use neovim as manpager
+export MANPAGER='nvim +Man!'
+export MANWIDTH=80
+
 # source a script, if it exists
 function source_if_exists() { [[ -s $1 ]] && source $1 || true }
 

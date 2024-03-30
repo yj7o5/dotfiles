@@ -63,7 +63,7 @@ lazy.setup({
 		},
 	},
 	{ "folke/zen-mode.nvim" },
-	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" }, -- markdown fanciness
 
 	-- navigation plugins
 	{ "christoomey/vim-tmux-navigator" }, -- tmux & split window navigation
@@ -159,6 +159,10 @@ lazy.setup({
 		end,
 	},
 	{ "nvim-treesitter/nvim-treesitter-context" },
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 
 	-- auto closing
 	{ "windwp/nvim-autopairs" }, -- autoclose parens, brackets, quotes, etc...
@@ -172,7 +176,12 @@ lazy.setup({
 	{ "tpope/vim-abolish" },
 
 	-- rust
-	{ "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^4", -- Recommended
+		ft = { "rust" },
+	},
+	-- { "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
 	{ "rust-lang/rust.vim" },
 
 	{ "michaelrommel/nvim-silicon" },
@@ -220,6 +229,7 @@ require("jayeve.plugins.lsp.null-ls")
 require("jayeve.plugins.autopairs")
 require("jayeve.plugins.gitlinker")
 require("jayeve.plugins.treesitter")
+require("jayeve.plugins.treesitter-objects")
 require("jayeve.plugins.gitsigns")
 require("jayeve.plugins.neoclip")
 require("jayeve.plugins.rust-tools")
@@ -230,8 +240,8 @@ require("jayeve.plugins.hover")
 require("jayeve.plugins.leap")
 require("jayeve.plugins.harpoon")
 require("jayeve.plugins.bufferline")
-require("jayeve.plugins.glow")
 require("jayeve.plugins.zenmode")
+require("jayeve.plugins.glow")
 require("jayeve.plugins.obsidian")
 require("jayeve.utils")
 

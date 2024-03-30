@@ -40,7 +40,9 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jk", "<ESC>")
 
 -- clear search highlights
-keymap.set("n", ";", ":nohl<cr>")
+keymap.set("n", ";", function()
+	vim.cmd("nohlsearch")
+end)
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
@@ -176,6 +178,8 @@ keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
 keymap.set({ "n" }, "<leader>z", "<cmd>ZenMode<cr>")
 
 local which_key = safeCall("which-key")
+local gitlinker = safeCall("gitlinker")
+local actions = safeCall("gitlinker.actions")
 
 which_key.register({
 	["<leader>"] = {
@@ -207,6 +211,12 @@ which_key.register({
 				vim.cmd("bdelete")
 			end,
 			"close current buffer",
+		},
+		B = {
+			function()
+				gitlinker.get_repo_url({ action_callback = actions.open_in_browser })
+			end,
+			"open ref link in browser",
 		},
 	},
 	["<leader>="] = {

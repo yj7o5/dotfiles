@@ -16,7 +16,7 @@ expandtab = true
 opt.wrap = false -- disable line wrapping
 
 -- for obsidian.nvim
-opt.conceallevel = 1
+opt.conceallevel = 0
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching

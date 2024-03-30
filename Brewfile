@@ -46,6 +46,7 @@ brew "go" # the language, go-lang
 brew "golangci-lint" # go linter
 brew "goreman" # manage procfile-based applications, a Go re-write of foreman
 brew "gping" # a prettier 'ping' command
+brew "helm" # cli for provisioning kubernetes resources
 brew "http-prompt" # interactive http request shell
 brew "httpie" # a more intuitive 'curl'
 brew "htop" # a prettier 'top'
@@ -57,7 +58,6 @@ brew "jzelinskie/faq/faq" # like jq for JSON, but more formats (https://github.c
 brew "kind" # something for kubernetes, idk
 brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
-brew "helm" # cli for provisioning kubernetes resources
 brew "lazygit" # git tui
 brew "less" # a better pager
 brew "loc" # lines of code
@@ -82,6 +82,7 @@ brew "node" # something for javascript
 brew "nvm" # node version manager
 brew "obsidian" # note taking app
 brew "octant" # 'top' for kubernetes
+brew "openmtp" # file transfer
 brew "optipng" # PNG file optimization utility
 brew "p7zip" # 7-Zip file archiver
 brew "par" # a paragraph [of text] formatting tool
@@ -101,6 +102,7 @@ brew "reattach-to-user-namespace"
 brew "redis" # in-memory cache
 brew "ripgrep" # a faster 'grep'
 brew "rsync" # a better 'cp' command
+brew "rust-analyzer" # rust LSP
 brew "rustscan" # a modern port scanner
 brew "sbt" # simple build tool (scala)
 brew "scala" # the best
