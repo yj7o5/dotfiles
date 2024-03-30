@@ -181,7 +181,7 @@ lazy.setup({
 		version = "^4", -- Recommended
 		ft = { "rust" },
 	},
-	-- { "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
+	{ "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
 	{ "rust-lang/rust.vim" },
 
 	{ "michaelrommel/nvim-silicon" },
