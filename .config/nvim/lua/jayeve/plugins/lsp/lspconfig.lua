@@ -80,6 +80,21 @@ typescript.setup({
 	},
 })
 
+-- confgure golong
+lspconfig.gopls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "goworkd", "gotmpl" },
+	root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+		},
+	},
+})
+
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
