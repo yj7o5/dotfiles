@@ -81,3 +81,7 @@ function kp {
     kp
   fi
 }
+
+export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
+

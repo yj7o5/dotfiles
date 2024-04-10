@@ -91,6 +91,13 @@ local function on_dir_changed()
 	vim.notify("cwd changed to → " .. cwd, vim.log.levels.INFO, { title = "jayeve.utils" })
 end
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "Brewfile" },
+	callback = function(ev)
+		vim.bo.filetype = "toml"
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "DirChanged" }, {
 	callback = on_dir_changed,
 })

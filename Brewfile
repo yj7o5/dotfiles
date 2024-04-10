@@ -13,10 +13,12 @@ brew "axel" # a faster curl
 brew "azure-cli" # Azure cloud cli
 brew "bash-completion" # back shell tab completions
 brew "bat" # a more colorful 'cat' command
+brew "bazel" # Open-source build and test tool similar to Make, Maven, and Gradle.
 brew "binwalk" # https://github.com/ReFirmLabs/binwalk
 brew "black" # python code formatter
 brew "broot" # a better 'tree' command
 brew "btop" # a more intuitive, prettier 'top' command
+brew "capnp" # a better protobuf/thrift?
 brew "ccls" # LSP server for C++/C
 brew "cheat" # different man page/cheat sheet tool
 brew "cloc" # statistics utility to count lines of code
@@ -53,6 +55,7 @@ brew "htop" # a prettier 'top'
 brew "hugo" # template-based static site generator
 brew "iftop" # 'top' for network interfaces
 brew "imagemagick" # create, compress, convert images
+brew "java"
 brew "jpegoptim" # optimise JPEG images
 brew "jzelinskie/faq/faq" # like jq for JSON, but more formats (https://github.com/jzelinskie/faq)
 brew "kind" # something for kubernetes, idk
@@ -107,6 +110,7 @@ brew "rustscan" # a modern port scanner
 brew "sbt" # simple build tool (scala)
 brew "scala" # the best
 brew "shellcheck" # shell script static analyzer
+brew "shfmt" shell script formatter
 brew "siege" # a load testing tool
 brew "silicon" # take screenshots of code
 brew "sk" # skim: fuzzy finder in rust

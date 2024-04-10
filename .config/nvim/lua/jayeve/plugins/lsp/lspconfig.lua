@@ -80,6 +80,13 @@ typescript.setup({
 	},
 })
 
+-- make bash-lsp work with zsh (nvim builtin-lsp)
+lspconfig["bashls"].setup({
+	-- completion = ...,
+	on_attach = on_attach,
+	filetypes = { "sh", "zsh", "bash" },
+})
+
 -- confgure golong
 lspconfig.gopls.setup({
 	on_attach = on_attach,

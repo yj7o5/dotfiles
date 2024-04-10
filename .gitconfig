@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore
-  editor = /usr/local/bin/nvim
+  editor = /opt/homebrew/bin/nvim
 [user]
 	name = J Evans
 	email = j@cloudflare.com
