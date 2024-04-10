@@ -2,6 +2,7 @@
 .config/nvim/backups
 .config/nvim/lazy-lock.json
 .bazelrc
+.config/karabiner/automatic_backups
 !.config/nvim
 !.config/alacritty
 !.config/karabiner
