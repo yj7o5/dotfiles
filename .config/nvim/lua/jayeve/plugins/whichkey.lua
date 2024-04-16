@@ -182,6 +182,28 @@ local gitlinker = safeCall("gitlinker")
 local actions = safeCall("gitlinker.actions")
 
 which_key.register({
+	[",q"] = {
+		i = {
+			vim.lsp.buf.incoming_calls,
+			"incoming_calls quickfix list",
+		},
+		o = {
+			vim.lsp.buf.outgoing_calls,
+			"outgoing_calls quickfix list",
+		},
+		n = {
+			function()
+				vim.cmd("cnext")
+			end,
+			"Forward quickfix list",
+		},
+		p = {
+			function()
+				vim.cmd("cprev")
+			end,
+			"Backward quickfix list",
+		},
+	},
 	["<leader>"] = {
 		g = {
 			name = "git",

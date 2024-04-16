@@ -89,6 +89,10 @@ lazy.setup({
 	-- telescope
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
 	{
+		"kelly-lin/telescope-ag",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },

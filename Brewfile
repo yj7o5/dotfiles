@@ -110,7 +110,7 @@ brew "rustscan" # a modern port scanner
 brew "sbt" # simple build tool (scala)
 brew "scala" # the best
 brew "shellcheck" # shell script static analyzer
-brew "shfmt" shell script formatter
+brew "shfmt" # shell script formatter
 brew "siege" # a load testing tool
 brew "silicon" # take screenshots of code
 brew "sk" # skim: fuzzy finder in rust

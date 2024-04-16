@@ -6,4 +6,6 @@ if not saga_status then
 	return
 end
 
-saga.setup({})
+saga.setup({
+	layout = "normal",
+})
