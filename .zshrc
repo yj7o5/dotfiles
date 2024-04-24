@@ -41,8 +41,9 @@ plugins=(
   docker
   docker-compose
   fzf
+  kubectl
+  kubectx
   # fzf-tab
-  k
   zsh-autosuggestions
   fast-syntax-highlighting
 )

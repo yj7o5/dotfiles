@@ -7,8 +7,17 @@ if not status then
 end
 
 noice.setup({
+	sections = {
+		lualine_x = {
+			{
+				noice.api.statusline.mode.get,
+				cond = noice.api.statusline.mode.has,
+				color = { fg = "#ff9e64" },
+			},
+		},
+	},
 	messages = {
-		enabled = true,
+		enabled = false,
 	},
 	-- avoid superfluous messages (from mason, lines written, etc)
 	routes = {

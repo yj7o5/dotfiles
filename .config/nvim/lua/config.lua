@@ -53,7 +53,7 @@ lazy.setup({
 	{ "ellisonleao/gruvbox.nvim" }, -- preferred colorscheme
 	{ "nvim-lualine/lualine.nvim" },
 	{ "MunifTanjim/nui.nvim" }, -- component library
-	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+	-- { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"folke/noice.nvim", -- floating command prompt and error messages
 		event = "VeryLazy",
@@ -180,11 +180,11 @@ lazy.setup({
 	{ "tpope/vim-abolish" },
 
 	-- rust
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
-		ft = { "rust" },
-	},
+	-- {
+	-- 	"mrcjkb/rustaceanvim",
+	-- 	version = "^4", -- Recommended
+	-- 	ft = { "rust" },
+	-- },
 	{ "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
 	{ "rust-lang/rust.vim" },
 
@@ -243,7 +243,7 @@ require("jayeve.plugins.metals")
 require("jayeve.plugins.hover")
 require("jayeve.plugins.leap")
 require("jayeve.plugins.harpoon")
-require("jayeve.plugins.bufferline")
+-- require("jayeve.plugins.bufferline")
 require("jayeve.plugins.zenmode")
 require("jayeve.plugins.glow")
 require("jayeve.plugins.obsidian")

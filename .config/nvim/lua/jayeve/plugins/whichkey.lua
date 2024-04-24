@@ -260,20 +260,20 @@ which_key.register({
 		jayeve.show_cur_location,
 		"show current location",
 	},
-	["g"] = {
-		t = {
-			function()
-				vim.cmd("BufferLineCycleNext")
-			end,
-			"BufferLineCycleNext",
-		},
-		T = {
-			function()
-				vim.cmd("BufferLineCyclePrev")
-			end,
-			"BufferLineCyclePrev",
-		},
-	},
+	-- ["g"] = {
+	-- 	t = {
+	-- 		function()
+	-- 			vim.cmd("BufferLineCycleNext")
+	-- 		end,
+	-- 		"BufferLineCycleNext",
+	-- 	},
+	-- 	T = {
+	-- 		function()
+	-- 			vim.cmd("BufferLineCyclePrev")
+	-- 		end,
+	-- 		"BufferLineCyclePrev",
+	-- 	},
+	-- },
 })
 which_key.register({
 	["<leader>b"] = {
