@@ -82,7 +82,7 @@ keymap.set("n", "<leader>c", "<cmd>Telescope grep_string<cr>") -- find string un
 keymap.set("n", "<leader>o", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>n", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>h", "<cmd>Telescope oldfiles<cr>") -- list previously opened files
-keymap.set("n", "<leader>l", "<cmd>Telescope jumplist<cr>") -- list of previous cursor positions
+keymap.set("n", "<leader>L", "<cmd>Telescope jumplist<cr>") -- list of previous cursor positions
 keymap.set("n", "<leader>j", "<cmd>Telescope zoxide list<cr>") -- list projects by recentcy, using zoxide
 keymap.set("n", "<leader>y", "<cmd>Telescope neoclip<cr>") -- list yank history
 keymap.set("n", "<leader>f", "<cmd>Telescope file_browser<cr>") -- open file file_browser switch to folder browser with ctrl-f
@@ -97,113 +97,11 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 keymap.set("n", "<leader>d", "<cmd>Telescope command_history<cr>")
 
-keymap.set("n", ",r", "<cmd>Lspsaga rename<CR>") -- smart rename
--- LSP finder - Find the symbol's definition
--- If there is no definition, it will instead be hidden
--- When you use an action in finder like "open vsplit",
--- you can use <C-t> to jump back
-keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>")
-
--- Code action
-keymap.set({ "n", "v" }, ",ca", "<cmd>Lspsaga code_action<CR>")
-
--- Rename all occurrences of the hovered word for the entire file
-keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>")
-
--- Rename all occurrences of the hovered word for the selected files
-keymap.set("n", "gr", "<cmd>Lspsaga rename ++project<CR>")
-
--- Peek definition
--- You can edit the file containing the definition in the floating window
--- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
--- It also supports tagstack
--- Use <C-t> to jump back
--- keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>")
-
--- Go to definition
-keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-
--- Show line diagnostics
--- You can pass argument ++unfocus to
--- unfocus the show_line_diagnostics floating window
-keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-
--- Show cursor diagnostics
--- Like show_line_diagnostics, it supports passing the ++unfocus argument
-keymap.set("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
-
--- Show buffer diagnostics
-keymap.set("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
-
--- Diagnostic jump
--- You can use <C-o> to jump back to your previous location
-keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-
--- Diagnostic jump with filters such as only jumping to an error
-keymap.set("n", "[E", function()
-	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end)
-keymap.set("n", "]E", function()
-	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
-end)
-
--- Toggle outline
-keymap.set("n", ",o", "<cmd>Lspsaga outline<CR>")
-
--- Hover Doc
--- If there is no hover doc,
--- there will be a notification stating that
--- there is no information available.
--- To disable it just use ":Lspsaga hover_doc ++quiet"
--- Pressing the key twice will enter the hover window
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-
--- If you want to keep the hover window in the top right hand corner,
--- you can pass the ++keep argument
--- Note that if you use hover with ++keep, pressing this key again will
--- close the hover window. If you want to jump to the hover window
--- you should use the wincmd command "<C-w>w"
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
-
--- Call hierarchy
-keymap.set("n", ",ci", "<cmd>Lspsaga incoming_calls<CR>")
-keymap.set("n", ",co", "<cmd>Lspsaga outgoing_calls<CR>")
-
--- Floating terminal
-keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
--- restart lsp server (not on youtube nvim video)
--- keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
-keymap.set({ "n" }, "<leader>z", "<cmd>ZenMode<cr>")
-
 local which_key = safeCall("which-key")
 local gitlinker = safeCall("gitlinker")
 local actions = safeCall("gitlinker.actions")
 
 which_key.register({
-	[",q"] = {
-		i = {
-			vim.lsp.buf.incoming_calls,
-			"incoming_calls quickfix list",
-		},
-		o = {
-			vim.lsp.buf.outgoing_calls,
-			"outgoing_calls quickfix list",
-		},
-		n = {
-			function()
-				vim.cmd("cnext")
-			end,
-			"Forward quickfix list",
-		},
-		p = {
-			function()
-				vim.cmd("cprev")
-			end,
-			"Backward quickfix list",
-		},
-	},
 	["<leader>"] = {
 		g = {
 			name = "git",
@@ -240,6 +138,12 @@ which_key.register({
 			end,
 			"open ref link in browser",
 		},
+		z = {
+			function()
+				vim.cmd("ZenMode")
+			end,
+			"Zen mode",
+		},
 	},
 	["<leader>="] = {
 		function()
@@ -274,6 +178,18 @@ which_key.register({
 	-- 		"BufferLineCyclePrev",
 	-- 	},
 	-- },
+	["<leader>]"] = {
+		function()
+			vim.cmd("cnext")
+		end,
+		"Next in quickfix list",
+	},
+	["<leader>["] = {
+		function()
+			vim.cmd("cprev")
+		end,
+		"Prev in quickfix list",
+	},
 })
 which_key.register({
 	["<leader>b"] = {
@@ -281,3 +197,48 @@ which_key.register({
 		"generate bitbucket link",
 	},
 }, { mode = "v" })
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+		keymap.set("n", ",qi", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
+		keymap.set("n", ",qo", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>", opts)
+		keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+		keymap.set("n", "gd", "<cmd> lua vim.lsp.buf.definition()<cr>", opts)
+		keymap.set("n", "K", "<cmd> lua vim.lsp.buf.hover()<cr>", opts)
+		keymap.set("n", "gI", "<cmd> lua vim.lsp.buf.implementation()<cr>", opts)
+		keymap.set("n", "<C-k>", "<cmd> lua vim.lsp.buf.signature_help()<cr>", opts)
+		keymap.set("n", "<leader>wa", "<cmd> lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
+		keymap.set("n", "<leader>wr", "<cmd> lua vim.lsp.buf.remove_workspace_folder()<cr>", opts)
+		keymap.set("n", "<space>D", "<cmd> lua vim.lsp.buf.type_definition()<cr>", opts)
+		keymap.set("n", ",rn", "<cmd> lua vim.lsp.buf.rename<cr>()", opts)
+		keymap.set({ "n", "v" }, ",ca", "<cmd> lua vim.lsp.buf.code_action()<cr>", opts)
+		keymap.set("n", "gR", "<cmd> lua vim.lsp.buf.references()<cr>", opts)
+		keymap.set("n", ",rs", ":LspRestart<cr>")
+		which_key.register({
+			["<leader>"] = {
+				F = {
+					function()
+						vim.lsp.buf.format({ async = true })
+					end,
+					"Foramt buffer (async)",
+					buffer = ev.buf,
+				},
+				["wl"] = {
+					function()
+						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+					end,
+					"list workspace folder",
+				},
+			},
+		}, { mode = "n" })
+	end,
+})

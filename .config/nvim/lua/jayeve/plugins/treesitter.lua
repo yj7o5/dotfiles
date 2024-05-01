@@ -19,6 +19,9 @@ treesitter.setup({
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"bash",
+		"rust",
+		"toml",
+		"lua",
 		"json",
 		"javascript",
 		"typescript",

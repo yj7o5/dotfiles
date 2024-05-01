@@ -147,7 +147,6 @@ lazy.setup({
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- for autocompletion
 	{ "hrsh7th/cmp-vsnip" }, -- for autocompletion
 	{ "hrsh7th/vim-vsnip" }, -- for autocompletion
-	{ "glepnir/lspsaga.nvim", branch = "main" }, -- enhanced lsp uis
 	{ "jose-elias-alvarez/typescript.nvim" }, -- additional functionality for typescript server (e.g. rename file & update imports)
 	{ "onsails/lspkind.nvim" }, -- vs-code like icons for autocompletion
 
@@ -180,11 +179,6 @@ lazy.setup({
 	{ "tpope/vim-abolish" },
 
 	-- rust
-	-- {
-	-- 	"mrcjkb/rustaceanvim",
-	-- 	version = "^4", -- Recommended
-	-- 	ft = { "rust" },
-	-- },
 	{ "simrat39/rust-tools.nvim", dependencies = { "neovim/nvim-lspconfig" } },
 	{ "rust-lang/rust.vim" },
 
@@ -227,7 +221,6 @@ require("jayeve.plugins.lualine")
 require("jayeve.plugins.telescope")
 require("jayeve.plugins.nvim-cmp")
 require("jayeve.plugins.lsp.mason")
-require("jayeve.plugins.lsp.lspsaga")
 require("jayeve.plugins.lsp.lspconfig")
 require("jayeve.plugins.lsp.null-ls")
 require("jayeve.plugins.autopairs")
