@@ -82,6 +82,18 @@ function kp {
   fi
 }
 
+function enable_sfo_dog_proxy {
+  sudo warp-cli tunnel endpoint set '162.159.204.1:2408' > /dev/null
+  warp-cli tunnel rotate-keys > /dev/null
+  sleep 1
+  curl -so - https://cloudflare.com/cdn-cgi/trace | grep '^colo=\|^sliver=\|^fl='
+}
+function disable_sfo_dog_proxy  {
+  sudo warp-cli tunnel endpoint reset > /dev/null
+  sleep 1
+  curl -so - https://cloudflare.com/cdn-cgi/trace | grep '^colo=\|^sliver=\|^fl='
+}
+
 export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 

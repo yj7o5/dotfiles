@@ -132,6 +132,18 @@ function M.show_cur_location()
 	})
 end
 
+-- Define a function to copy the file path to the clipboard
+function M.copy_file_path_to_clipboard()
+	-- Get the current buffer's file path
+	local file_path = vim.fn.expand("%:p")
+
+	-- Copy the file path to the system clipboard
+	vim.fn.setreg("+", file_path)
+	vim.notify("File path copied to clipboard: " .. file_path, vim.log.levels.INFO, {
+		title = "jayeve.utils",
+	})
+end
+
 function M.cd_to_current_buf_directory()
 	local bufname = vim.api.nvim_buf_get_name(0)
 	local buffer_directory = bufname:match("^(.*)/[^/]-$")

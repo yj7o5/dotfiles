@@ -26,6 +26,7 @@ brew "cmake" # for building c code
 brew "coreutils" # must be installed for tmux network status plugin
 brew "cowsay" # a more stupid 'echo' command
 brew "ctags" # generate an index file of language objects for a file
+brew "ctop" # htop for docker stats
 brew "cue-lang/tap/cue" # evaluate CUE files
 brew "curl" # use HTTP protocol from command line
 brew "diffstat" # make histogram of diff-output
@@ -58,6 +59,7 @@ brew "imagemagick" # create, compress, convert images
 brew "java"
 brew "jpegoptim" # optimise JPEG images
 brew "jzelinskie/faq/faq" # like jq for JSON, but more formats (https://github.com/jzelinskie/faq)
+brew "k9s" # htop for k8s
 brew "kind" # something for kubernetes, idk
 brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
@@ -70,6 +72,7 @@ brew "martensson/tpm/tpm" # tmux plugin manager
 brew "masscan" # more aggressive network scanner (for hacking)
 brew "mediainfo" # get metadata from video & audio files
 brew "mercurial" # svn version control
+brew "mockery" # auto generate go mock boilerplate
 brew "mosh" # a more resliant ssh server over UDP
 brew "mitmproxy" # (for hacking)
 brew "mkcert" # make local, trustable TLS certs
@@ -90,6 +93,7 @@ brew "optipng" # PNG file optimization utility
 brew "p7zip" # 7-Zip file archiver
 brew "par" # a paragraph [of text] formatting tool
 brew "parallel" # run a command on multiple cores
+brew "pipx" # pip that manages virtual environments
 brew "pkg-config" # return metainfo about installed libraries
 brew "pngcrush" # PNG compression utility
 brew "procs" # a more human-friedly 'ps' command
@@ -114,6 +118,7 @@ brew "shfmt" # shell script formatter
 brew "siege" # a load testing tool
 brew "silicon" # take screenshots of code
 brew "sk" # skim: fuzzy finder in rust
+brew "socat" # Multipurpose relay (SOcket CAT)
 brew "sox" # Sound eXchange: play, record and convert audio files.
 brew "spotify-tui" # put spotify controls in tmux
 brew "sqlite" # database

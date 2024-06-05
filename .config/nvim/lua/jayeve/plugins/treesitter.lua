@@ -11,6 +11,7 @@ treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
+		disable = { "yaml" },
 	},
 	-- enable indentation
 	indent = { enable = true },

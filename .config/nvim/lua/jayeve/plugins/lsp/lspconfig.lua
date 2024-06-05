@@ -81,7 +81,7 @@ lspconfig["tailwindcss"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = { -- custom settings for lua
 		Lua = {

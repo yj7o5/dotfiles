@@ -103,6 +103,10 @@ local actions = safeCall("gitlinker.actions")
 
 which_key.register({
 	["<leader>"] = {
+		C = {
+			jayeve.copy_file_path_to_clipboard,
+			"Copy cur buffer filepath",
+		},
 		g = {
 			name = "git",
 		},
@@ -215,15 +219,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap.set("n", "gd", "<cmd> lua vim.lsp.buf.definition()<cr>", opts)
 		keymap.set("n", "K", "<cmd> lua vim.lsp.buf.hover()<cr>", opts)
 		keymap.set("n", "gI", "<cmd> lua vim.lsp.buf.implementation()<cr>", opts)
-		keymap.set("n", "<C-k>", "<cmd> lua vim.lsp.buf.signature_help()<cr>", opts)
+		keymap.set("n", "<C-m>", "<cmd> lua vim.lsp.buf.signature_help()<cr>", opts)
 		keymap.set("n", "<leader>wa", "<cmd> lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
 		keymap.set("n", "<leader>wr", "<cmd> lua vim.lsp.buf.remove_workspace_folder()<cr>", opts)
 		keymap.set("n", "<space>D", "<cmd> lua vim.lsp.buf.type_definition()<cr>", opts)
-		keymap.set("n", ",rn", "<cmd> lua vim.lsp.buf.rename<cr>()", opts)
+		-- keymap.set("n", ",rn", "<cmd> lua vim.lsp.buf.rename<cr>()", opts)
 		keymap.set({ "n", "v" }, ",ca", "<cmd> lua vim.lsp.buf.code_action()<cr>", opts)
 		keymap.set("n", "gR", "<cmd> lua vim.lsp.buf.references()<cr>", opts)
 		keymap.set("n", ",rs", ":LspRestart<cr>")
 		which_key.register({
+			[",rn"] = {
+				function()
+					vim.lsp.buf.rename()
+				end,
+				"rename variable",
+			},
 			["<leader>"] = {
 				F = {
 					function()
