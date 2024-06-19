@@ -68,7 +68,7 @@ lazy.setup({
 	-- navigation plugins
 	{ "christoomey/vim-tmux-navigator" }, -- tmux & split window navigation
 	{ "szw/vim-maximizer" }, -- maximizes and restores current window
-	{ "ggandor/leap.nvim" }, -- S keymap conflicts with vim-surround
+	-- { "ggandor/leap.nvim" }, -- S keymap conflicts with vim-surround
 	{ "nvim-tree/nvim-tree.lua" }, -- file explorer
 	{
 		"ThePrimeagen/harpoon",
@@ -234,12 +234,12 @@ require("jayeve.plugins.rust-lang")
 require("jayeve.plugins.silicon")
 require("jayeve.plugins.metals")
 require("jayeve.plugins.hover")
-require("jayeve.plugins.leap")
 require("jayeve.plugins.harpoon")
--- require("jayeve.plugins.bufferline")
 require("jayeve.plugins.zenmode")
 require("jayeve.plugins.glow")
 require("jayeve.plugins.obsidian")
 require("jayeve.utils")
 
+-- require("jayeve.plugins.leap")
+-- require("jayeve.plugins.bufferline")
 -- require("jayeve.plugins.coc")

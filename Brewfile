@@ -65,6 +65,7 @@ brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
 brew "lazygit" # git tui
 brew "less" # a better pager
+brew "libpq" # postgres tools
 brew "loc" # lines of code
 brew "lolcat" # prettier 'cat' command
 brew "lua-language-server" # LSP for Lua

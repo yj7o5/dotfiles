@@ -19,7 +19,9 @@ treesitter.setup({
 	autotag = { enable = true },
 	-- ensure these language parsers are installed
 	ensure_installed = {
+		"go",
 		"bash",
+		"regex",
 		"rust",
 		"toml",
 		"lua",

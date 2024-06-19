@@ -182,13 +182,13 @@ which_key.register({
 	-- 		"BufferLineCyclePrev",
 	-- 	},
 	-- },
-	["<leader>]"] = {
+	["]q"] = {
 		function()
 			vim.cmd("cnext")
 		end,
 		"Next in quickfix list",
 	},
-	["<leader>["] = {
+	["[q"] = {
 		function()
 			vim.cmd("cprev")
 		end,
@@ -228,6 +228,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap.set("n", "gR", "<cmd> lua vim.lsp.buf.references()<cr>", opts)
 		keymap.set("n", ",rs", ":LspRestart<cr>")
 		which_key.register({
+			["]d"] = {
+				function()
+					vim.diagnostic.goto_next()
+				end,
+				"next diagnostic message",
+			},
+			["[d"] = {
+				function()
+					vim.diagnostic.goto_prev()
+				end,
+				"prev diagnostic message",
+			},
 			[",rn"] = {
 				function()
 					vim.lsp.buf.rename()

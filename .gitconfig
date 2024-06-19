@@ -6,3 +6,6 @@
 	email = j@cloudflare.com
 [alias]
   recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  squash = "!f() { git rebase -i origin/${1:-main}; }; f"
+  allfiles = "!f() { git log --name-only --diff-filter=A --pretty=format: | sort -u; }; f"
+  root = rev-parse --show-toplevel

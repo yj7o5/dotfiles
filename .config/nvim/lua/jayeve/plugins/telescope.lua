@@ -22,6 +22,17 @@ if not zoxide_setup then
 	return
 end
 
+-- local telescope_ag_setup, telescope_ag = pcall(require, "telescope-ag")
+-- if not telescope_ag_setup then
+-- 	local info = debug.getinfo(1, "S").short_src
+-- 	print(info, "failed to load telescope_ag")
+-- 	return
+-- end
+--
+-- telescope_ag.setup({
+-- 	cmd = telescope_ag.cmds.rg,
+-- })
+--
 -- configure telescope
 telescope.setup({
 	-- configure custom mappings
@@ -89,14 +100,14 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzf")
-telescope.load_extension("zoxide")
-telescope.load_extension("neoclip")
-telescope.load_extension("bookmarks")
-telescope.load_extension("gh")
-telescope.load_extension("file_browser")
-telescope.load_extension("frecency")
-telescope.load_extension("ag")
+-- telescope.load_extension("fzf")
+-- telescope.load_extension("zoxide")
+-- telescope.load_extension("neoclip")
+-- telescope.load_extension("bookmarks")
+-- telescope.load_extension("gh")
+-- telescope.load_extension("file_browser")
+-- telescope.load_extension("frecency")
+-- telescope.load_extension("ag")
 -- project is maybe usefule but takes too long to load
 -- nvim --startuptime startuptime.log
 -- telescope.load_extension("project")

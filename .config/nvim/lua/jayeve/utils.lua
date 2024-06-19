@@ -92,6 +92,12 @@ local function on_dir_changed()
 end
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { ".tigrc" },
+	callback = function(ev)
+		vim.bo.filetype = "bash"
+	end,
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { "Brewfile" },
 	callback = function(ev)
 		vim.bo.filetype = "toml"
