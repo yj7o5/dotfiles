@@ -1,12 +1,12 @@
 tap "cue-lang/tap"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "jzelinskie/faq"
+tap "localsend/localsend"
 tap "txn2/tap"
 tap "xwmx/taps"
-tap "homebrew/cask-fonts"
 brew "act" # github actions
 #brew "airport" # wireless network scanner
-brew "alacritty" # terminal in rust, easier to configure
 brew "autojump" # a smarter cd
 brew "awscli" # AWS cloud cli
 brew "axel" # a faster curl
@@ -67,6 +67,7 @@ brew "lazygit" # git tui
 brew "less" # a better pager
 brew "libpq" # postgres tools
 brew "loc" # lines of code
+# brew "localsend" # like airdrop
 brew "lolcat" # prettier 'cat' command
 brew "lua-language-server" # LSP for Lua
 brew "martensson/tpm/tpm" # tmux plugin manager
@@ -121,7 +122,6 @@ brew "silicon" # take screenshots of code
 brew "sk" # skim: fuzzy finder in rust
 brew "socat" # Multipurpose relay (SOcket CAT)
 brew "sox" # Sound eXchange: play, record and convert audio files.
-brew "spotify-tui" # put spotify controls in tmux
 brew "sqlite" # database
 brew "stow" # symlink manager (for dotfiles)
 brew "subversion" # source control
@@ -145,6 +145,8 @@ brew "zoxide" # a better 'cd' command, and better than autojump
 brew "zsh" # default MacOS shell
 brew "zstd" # Zstandard compression
 cask "1password" # password manager
+cask "localsend" # like airdrop
+cask "alacritty" # terminal in rust, easier to configure
 cask "amethyst" # a shitty automatic tiling window manager
 cask "android-platform-tools" # android dev tools
 cask "anki" # a notecard app
@@ -152,7 +154,6 @@ cask "karabiner-elements" # keyboard key configuration app
 cask "macdown" # Markdown text editor
 cask "rectangle" # a manual tiling window manager
 cask "inkscape" # for building keycap legends
-cask "iterm2" # a better version of MacOS Terminal
 cask "font-fira-code" # more icons in my font
 cask "font-hack-nerd-font" # more icons in my font
 cask "font-jetbrains-mono-nerd-font" # more icons in my font
