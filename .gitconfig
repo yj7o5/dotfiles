@@ -1,11 +1,12 @@
 [core]
   excludesfile = ~/.gitignore
-  editor = /opt/homebrew/bin/nvim
+  editor = nvim
 [user]
 	name = J Evans
 	email = j@cloudflare.com
 [alias]
-  recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:red)%(objectname:short)%(color:reset) | %(contents:subject) | %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   squash = "!f() { git rebase -i origin/${1:-main}; }; f"
   allfiles = "!f() { git log --name-only --diff-filter=A --pretty=format: | sort -u; }; f"
   root = rev-parse --show-toplevel
+  c = "!f() { git recent | fzf-tmux --ansi --border --color='info:143,border:240,spinner:108,hl+:red' --delimiter ' | ' | sed 's/^[ \t*]*//' | awk '{print $1}' | xargs git checkout; }; f"

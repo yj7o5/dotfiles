@@ -5,6 +5,17 @@
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #npm config set prefix $NVM_DIR/versions/node/v10.13.0
 
+function jopen {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: jopen CR-958178"
+    echo " this attempts to open the url https://jira.cfdata.org/browse/CR-958178"
+  else
+    url="https://jira.cfdata.org/browse/$1"
+    echo "opening ${url}"
+    open "$url"
+  fi
+}
+
 function ff {
   result=$(rg --ignore-case --color=always --line-number --no-heading "$@" |
     fzf --ansi \
@@ -19,28 +30,76 @@ function ff {
   fi
 }
 
-# helpful util for jumping into sbt REPL
-function prj {
+# helpful util for jumping into cf project wrapped in tmux
+function prj_helper {
+  starting_dir=$(pwd)
+
   local base=$HOME/cloudflare
   if [ ! -d "$base" ]; then
     echo "creating $base"
     mkdir $base
   fi
   local team=$1
-  local team_dir=$base/$team
-  if [ ! -d "$team_dir" ]; then
-    echo "creating $team_dir"
-    mkdir -p $team_dir
-  fi
   local project=$2
+  local team_dir=$base/$team
   local project_dir=$base/$team/$project
-  echo "project_dir: $project_dir\nteam_dir: $team_dir"
-  if [ ! -d "$project_dir" ]; then
-    echo "cloning $project into $team_dir"
-    cd $team_dir && git clone ssh://git@bitbucket.cfdata.org:7999/$team/$project.git
+  # echo "project_dir: $project_dir\nteam_dir: $team_dir"
+  if [ ! -d $project_dir ]; then
+    # check if project exists on bitbucket
+    repo_url="ssh://git@bitbucket.cfdata.org:7999/$team/$project.git"
+
+    # Try cloning the repository
+    git ls-remote "$repo_url" > /dev/null 2>&1
+
+    if [[ $? -eq 0 ]]; then
+      echo "INFO: checking for $team_dir"
+      if [ ! -d $team_dir ]; then
+        echo "INFO: creating directory $team_dir"
+        mkdir -p $team_dir
+      fi
+
+      echo "INFO: cloning $repo_url into $project_dir"
+      git clone ssh://git@bitbucket.cfdata.org:7999/$team/$project.git $project_dir
+    else
+      echo "ERROR: project $repo_url does not exist in bitbucket"
+      return 1
+    fi
   fi
 
-  cd $project_dir
+  # tmux is not running
+  tmux_running=$(pgrep tmux)
+  if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+      tmux new-session -s $project -c $project_dir
+      exit 0
+  fi
+
+  if ! tmux has-session -t="$project" 2>/dev/null; then
+      echo "creating session $project with root dir at $(pwd)"
+      tmux new-session -d -s "$project" -c "$project_dir"
+  fi
+
+  if [[ -z $TMUX ]]; then
+    # we aren't in tmux, so attach to new session
+    tmux attach-session -t "$project" -c "$project_dir"
+  else
+    # we're already in tmux, so switch to new session
+    tmux switch-client -t "$project"
+  fi
+
+  # Check if the function failed
+  if [[ $? -ne 0 ]]; then
+    cd $starting_dir
+    return 1
+  fi
+}
+
+function prj {
+  if [ "$#" -ne 2 ]; then
+    echo "Usage: prj cache ssl-detector"
+    echo " this attempts to open a work project. If the project is not present, clone and open in a tmux session."
+  else
+    prj_helper $1 $2
+  fi
 }
 
 _prj() {
@@ -89,3 +148,10 @@ function disable_sfo_dog_proxy  {
 export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
+eval "$(temporal completion zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jevans/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jevans/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jevans/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jevans/Desktop/google-cloud-sdk/completion.zsh.inc'; fi

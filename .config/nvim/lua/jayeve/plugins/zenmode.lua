@@ -8,6 +8,11 @@ end
 
 -- enable zenmode
 zenmode.setup({
+	plugins = {
+		alacritty = {
+			enabled = true,
+		},
+	},
 	on_open = function(_)
 		vim.fn.system([[tmux set status off]])
 		vim.fn.system([[tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z]])

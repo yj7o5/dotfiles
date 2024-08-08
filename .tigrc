@@ -411,4 +411,6 @@
 # 	status.changed=stat-unstaged \
 # 	status.untracked=stat-untracked
 
-color cursor			black	green	bold
+color cursor			black	blue	bold
+color title-focus		white	default bold
+color title-blur		white	default bold

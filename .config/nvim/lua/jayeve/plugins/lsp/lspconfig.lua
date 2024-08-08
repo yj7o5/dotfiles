@@ -56,6 +56,25 @@ lspconfig["bashls"].setup({
 	filetypes = { "sh", "zsh", "bash" },
 })
 
+-- lspconfig.yamlls.setup({
+-- 	settings = {
+-- 		yaml = {
+-- 			format = { enable = true },
+-- 			keyOrdering = false,
+-- 		},
+-- 	},
+-- })
+vim.filetype.add({
+	extension = {
+		zsh = "sh",
+		sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+	},
+	filename = {
+		[".zshrc"] = "sh",
+		[".zshenv"] = "sh",
+	},
+})
+
 -- confgure golong
 lspconfig.gopls.setup({
 	capabilities = capabilities,
@@ -101,6 +120,8 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig["clangd"].setup({})
+
+lspconfig["intelephense"].setup({})
 
 lspconfig.ruff_lsp.setup({
 	init_options = {

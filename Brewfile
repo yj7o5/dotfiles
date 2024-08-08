@@ -63,6 +63,7 @@ brew "k9s" # htop for k8s
 brew "kind" # something for kubernetes, idk
 brew "kubectx" # a wrapper around 'kubectl context' subcommands
 brew "kubectl" # cli for kubernetes API
+brew "kube-linter" # cli for linting k8s and helm config
 brew "lazygit" # git tui
 brew "less" # a better pager
 brew "libpq" # postgres tools
@@ -140,6 +141,7 @@ brew "wget" # download from internet
 brew "xz" # compress/decompress files
 brew "yarn" # idk which yarn this is: either javascript or distributed data compute tool
 brew "youtube-dl" # media file downloader
+brew "yamllint" # yaml linter written in go
 brew "yt-dlp" # media file downloader
 brew "zoxide" # a better 'cd' command, and better than autojump
 brew "zsh" # default MacOS shell

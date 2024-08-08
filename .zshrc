@@ -103,9 +103,19 @@ function ff {
   fi
 }
 
+gch () {
+  git recent | \
+    fzf-tmux --ansi --border \
+      --color='info:143,border:240,spinner:108,hl+:red' \
+      --delimiter ' | ' | \
+    sed 's/^[ \t*]*//' | \
+    awk '{print $1}' | \
+    xargs git checkout
+}
+
 
 # airport network utility
-sys_name==$(uname -s)
+sys_name=$(uname -s)
 if [[ $sys_name == "Darwin" ]]; then
   ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
 elif [[ $sys_name == "Linux" ]]; then
@@ -113,3 +123,5 @@ elif [[ $sys_name == "Linux" ]]; then
 else
   echo "Unknown system. sorry Windows"
 fi
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
