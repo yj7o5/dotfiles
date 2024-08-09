@@ -64,6 +64,13 @@ lazy.setup({
 	},
 	{ "folke/zen-mode.nvim" },
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" }, -- markdown fanciness
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 
 	-- navigation plugins
 	{ "christoomey/vim-tmux-navigator" }, -- tmux & split window navigation
@@ -238,6 +245,7 @@ require("jayeve.plugins.harpoon")
 require("jayeve.plugins.zenmode")
 require("jayeve.plugins.glow")
 require("jayeve.plugins.obsidian")
+require("jayeve.plugins.indent-blankline")
 require("jayeve.utils")
 
 -- require("jayeve.plugins.leap")

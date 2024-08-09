@@ -194,6 +194,12 @@ which_key.register({
 		end,
 		"Prev in quickfix list",
 	},
+	["<leader>I"] = {
+		function()
+			vim.cmd("IBLToggle")
+		end,
+		"toggle indent marker lines",
+	},
 })
 which_key.register({
 	["<leader>b"] = {
