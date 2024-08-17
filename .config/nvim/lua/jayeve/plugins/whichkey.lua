@@ -10,7 +10,8 @@ end
 local harpoon_mark = safeCall("harpoon.mark")
 local harpoon_ui = safeCall("harpoon.ui")
 local lualine_nightfly = safeCall("lualine.themes.nightfly")
-local jayeve = safeCall("jayeve.utils")
+local jayeve = require("jayeve.utils")
+local prj = require("jayeve.plugins.prj")
 
 local function togglePurple()
 	if vim.g.colors_name == "neovim_purple" then
@@ -111,12 +112,15 @@ which_key.register({
 			name = "git",
 		},
 		p = {
+			function()
+				local base = os.getenv("HOME") .. "/cloudflare"
+				prj.git_dir_picker(base)
+			end,
+			"open CF project in tmux",
+		},
+		P = {
 			togglePurple,
 			"Toggle Purple Display",
-		},
-		b = {
-			jayeve.get_cloudflare_source_link,
-			"generate bitbucket link",
 		},
 		a = {
 			function()
@@ -201,12 +205,6 @@ which_key.register({
 		"toggle indent marker lines",
 	},
 })
-which_key.register({
-	["<leader>b"] = {
-		jayeve.get_cloudflare_source_link,
-		"generate bitbucket link",
-	},
-}, { mode = "v" })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
