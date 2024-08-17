@@ -10,3 +10,4 @@
   allfiles = "!f() { git log --name-only --diff-filter=A --pretty=format: | sort -u; }; f"
   root = rev-parse --show-toplevel
   c = "!f() { git recent | fzf-tmux --ansi --border --color='info:143,border:240,spinner:108,hl+:red' --delimiter ' | ' | sed 's/^[ \t*]*//' | awk '{print $1}' | xargs git checkout; }; f"
+  dno = "diff --name-only"

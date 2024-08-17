@@ -6,14 +6,14 @@ if not status then
 	return
 end
 
-local highlight = { "CursorColumn", "Whitespace" }
+-- local highlight = { "CursorColumn", "Whitespace" }
 
 ibl.setup({
 	enabled = false,
-	indent = { highlight = highlight, char = "" },
-	whitespace = {
-		highlight = highlight,
-		remove_blankline_trail = false,
-	},
-	scope = { enabled = false },
+	-- indent = { highlight = highlight, char = "" },
+	-- whitespace = {
+	-- 	highlight = highlight,
+	-- 	remove_blankline_trail = false,
+	-- },
+	scope = { enabled = true },
 })
