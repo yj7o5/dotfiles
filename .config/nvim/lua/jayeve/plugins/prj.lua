@@ -32,21 +32,6 @@ local function get_tmux_sessions()
 	return sessions
 end
 
--- Function to create a Tmux session previewer
--- local function tmux_session_previewer()
--- 	return previewers.new_termopen_previewer({
--- 		get_command = function(entry)
--- 			-- Use the entry.value which corresponds to the selected session name
--- 			return { "tmux", "display-message", "-p", "#{session_name}" }
--- 		end,
--- 		-- Set the syntax highlighting (if needed)
--- 		syntax = "text",
--- 		mime_hook = function(filepath, bufnr, opts)
--- 			vim.api.nvim_buf_set_option(bufnr, "filetype", opts.syntax or "text")
--- 		end,
--- 	})
--- end
-
 local function prj_helper(team, project)
 	local starting_dir = vim.fn.getcwd()
 
@@ -141,6 +126,14 @@ local function list_git_dirs(root_dir)
 	return results
 end
 
+local function split_input_on_whitespace(input)
+	local result = {}
+	for word in string.gmatch(input, "%S+") do
+		table.insert(result, word)
+	end
+	return result
+end
+
 function M.git_dir_picker(root_dir)
 	local tmux_sessions = get_tmux_sessions()
 	pickers
@@ -160,18 +153,31 @@ function M.git_dir_picker(root_dir)
 					}
 				end,
 			}),
-			-- previewer = tmux_session_previewer(),
 			sorter = conf.generic_sorter({}),
 			attach_mappings = function(_, map)
 				actions.select_default:replace(function(prompt_bufnr)
-					actions.close(prompt_bufnr)
+					local input = action_state.get_current_line()
 					local selection = action_state.get_selected_entry()
-					vim.notify(
-						"Project → " .. selection.value[1] .. " Repo → " .. selection.value[2],
-						vim.log.levels.INFO,
-						{ title = "prj.lua" }
-					)
-					prj(selection.value[1], selection.value[2])
+
+					actions.close(prompt_bufnr)
+					if selection then
+						-- vim.notify(
+						-- 	"Project → " .. selection.value[1] .. " Repo → " .. selection.value[2],
+						-- 	vim.log.levels.INFO,
+						-- 	{ title = "prj.lua" }
+						-- )
+						prj(selection.value[1], selection.value[2])
+					else
+						local split = split_input_on_whitespace(input)
+						if #split == 2 then
+							-- vim.notify(
+							-- 	"Input: " .. split[1] .. " " .. split[2],
+							-- 	vim.log.levels.INFO,
+							-- 	{ title = "prj.lua" }
+							-- )
+							prj(split[1], split[2])
+						end
+					end
 				end)
 				return true
 			end,
