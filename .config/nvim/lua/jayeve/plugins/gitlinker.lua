@@ -9,7 +9,9 @@ end
 -- configure/enable gitlinker
 gitlinker.setup({
 	callbacks = {
-		-- cloudflare
+		-- cloudflare new
+		["gitlab.cfdata.org"] = require("gitlinker.hosts").get_gitlab_type_url,
+		-- cloudflare old
 		["bitbucket.cfdata.org"] = function(url_data)
 			local project = url_data.repo:sub(1, url_data.repo:find("/") - 1)
 			local repo = url_data.repo:sub(url_data.repo:find("/") + 1)

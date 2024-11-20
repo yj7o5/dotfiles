@@ -14,6 +14,7 @@ brew "azure-cli" # Azure cloud cli
 brew "bash-completion" # back shell tab completions
 brew "bat" # a more colorful 'cat' command
 brew "bazel" # Open-source build and test tool similar to Make, Maven, and Gradle.
+brew "bcrypt" # to bcrypt hash things
 brew "binwalk" # https://github.com/ReFirmLabs/binwalk
 brew "black" # python code formatter
 brew "broot" # a better 'tree' command
@@ -96,9 +97,11 @@ brew "optipng" # PNG file optimization utility
 brew "p7zip" # 7-Zip file archiver
 brew "par" # a paragraph [of text] formatting tool
 brew "parallel" # run a command on multiple cores
+brew "php"
 brew "pipx" # pip that manages virtual environments
 brew "pkg-config" # return metainfo about installed libraries
 brew "pngcrush" # PNG compression utility
+brew "poppler" # PDF tool
 brew "procs" # a more human-friedly 'ps' command
 brew "pstree" # list 'ps' processes as a tree
 brew "psutils" # PostScript document handling utilities

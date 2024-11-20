@@ -71,6 +71,7 @@ lazy.setup({
 		---@type ibl.config
 		opts = {},
 	},
+	{ "yever/rtl.vim" }, -- right to left
 
 	-- navigation plugins
 	{ "christoomey/vim-tmux-navigator" }, -- tmux & split window navigation
@@ -168,7 +169,7 @@ lazy.setup({
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	},
-	{ "nvim-treesitter/nvim-treesitter-context" },
+	-- { "nvim-treesitter/nvim-treesitter-context" }, -- preview top of current containing code block
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -190,7 +191,6 @@ lazy.setup({
 	{ "rust-lang/rust.vim" },
 
 	{ "michaelrommel/nvim-silicon" },
-	{ "yever/rtl.vim" },
 
 	-- for scala IDE-like features
 	{
