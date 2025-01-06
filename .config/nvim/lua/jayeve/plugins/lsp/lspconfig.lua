@@ -85,6 +85,16 @@ lspconfig.gopls.setup({
 		gopls = {
 			completeUnimported = true,
 			usePlaceholders = true,
+			-- https://github.com/bazel-contrib/rules_go/wiki/Editor-setup
+			env = {
+				GOPACKAGESDRIVER = "./tools/gopackagesdriver.sh",
+			},
+			directoryFilters = {
+				"-bazel-bin",
+				"-bazel-out",
+				"-bazel-testlogs",
+				"-bazel-mypkg",
+			},
 		},
 	},
 })

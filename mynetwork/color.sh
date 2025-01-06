@@ -16,7 +16,8 @@
 # thm_black4="#626880"
 get_current_network_color() {
   if [[ "$(uname)" == "Darwin" ]]; then
-    current_network="$(networksetup -getairportnetwork en0 | awk -F: '{gsub(/^ *| *$/, "", $2); print $2}')"
+    # current_network="$(networksetup -getairportnetwork en0 | awk -F: '{gsub(/^ *| *$/, "", $2); print $2}')"
+    current_network="$(ipconfig getsummary en0 | awk -F ' SSID : ' '/ SSID : / {print $2}')"
     if [[ -z $current_network ]]; then
       echo '#414559'
     else

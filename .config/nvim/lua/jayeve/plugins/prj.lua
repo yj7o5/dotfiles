@@ -46,24 +46,38 @@ local function prj_helper(team, project)
 
 	if vim.fn.isdirectory(project_dir) == 0 then
 		-- check if project exists on bitbucket
-		local repo_url = "ssh://git@bitbucket.cfdata.org:7999/" .. team .. "/" .. project .. ".git"
+		local gitlab_url = "git@gitlab.cfdata.org:cloudflare/" .. team .. "/" .. project .. ".git"
 
-		-- Try cloning the repository
-		local cmd = "git ls-remote " .. repo_url .. " > /dev/null 2>&1"
-		local success = os.execute(cmd)
+		-- Try cloning the repository from gitlab
+		local gitlab_ls_remote = "git ls-remote " .. gitlab_url .. " > /dev/null 2>&1"
+		local gitlab_success = os.execute(gitlab_ls_remote)
 
-		if success then
-			print("INFO: checking for " .. team_dir)
+		if gitlab_success then
+			print("INFO: checking gitlab for " .. team_dir)
 			if vim.fn.isdirectory(team_dir) == 0 then
 				print("INFO: creating directory " .. team_dir)
 				vim.fn.mkdir(team_dir, "p")
 			end
 
-			print("INFO: cloning " .. repo_url .. " into " .. project_dir)
-			os.execute("git clone " .. repo_url .. " " .. project_dir)
+			print("INFO: cloning " .. gitlab_url .. " into " .. project_dir)
+			os.execute("git clone " .. gitlab_url .. " " .. project_dir)
 		else
-			print("ERROR: project " .. repo_url .. " does not exist in bitbucket")
-			return 1
+			local bitbucket_url = "ssh://git@bitbucket.cfdata.org:7999/" .. team .. "/" .. project .. ".git"
+			print("Cloning from Gitlab failed. Falling back to bitbucket")
+			local bitbucket_success = "git ls-remote " .. bitbucket_url .. " > /dev/null 2>&1"
+			if bitbucket_success then
+				print("INFO: checking gitlab for " .. team_dir)
+				if vim.fn.isdirectory(team_dir) == 0 then
+					print("INFO: creating directory " .. team_dir)
+					vim.fn.mkdir(team_dir, "p")
+				end
+
+				print("INFO: cloning " .. bitbucket_url .. " into " .. project_dir)
+				os.execute("git clone " .. bitbucket_url .. " " .. project_dir)
+			else
+				print("ERROR: project " .. bitbucket_url .. " does not exist in bitbucket")
+				return 1
+			end
 		end
 	end
 

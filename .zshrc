@@ -103,6 +103,23 @@ function ff {
   fi
 }
 
+function tm() {
+  current_directory=$(basename "$PWD")
+  # check if we're currently in a TMUX session
+  if [[ -n $TMUX ]]; then
+    current_session=$(tmux display-message -p '#S')
+    echo "current session" $current_session
+    if [[ "$current_session" == "$current_directory" ]]; then
+      echo "No-op"
+      return
+    fi
+  fi
+  echo "checking for session" $current_directory
+  tmux has-session -t $current_directory 2>/dev/null && tmux attach-session -t $current_directory || tmux new-session -d -s $current_directory
+  # if we get to this line, we must not have switched sessions
+  tmux switch-client -t $current_directory
+}
+
 gch () {
   git recent | \
     fzf-tmux --ansi --border \
@@ -119,7 +136,7 @@ sys_name=$(uname -s)
 if [[ $sys_name == "Darwin" ]]; then
   ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
 elif [[ $sys_name == "Linux" ]]; then
-  echo "airport not supported on Linux" 
+  echo "airport not supported on Linux"
 else
   echo "Unknown system. sorry Windows"
 fi
