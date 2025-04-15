@@ -93,25 +93,7 @@ function prj_helper {
   fi
 }
 
-function prj {
-  if [ "$#" -ne 2 ]; then
-    echo "Usage: prj cache ssl-detector"
-    echo " this attempts to open a work project. If the project is not present, clone and open in a tmux session."
-  else
-    prj_helper $1 $2
-  fi
-}
-
-_prj() {
-    local cur opts
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=$(cd $HOME/cloudflare ; ls)
-    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
-}
-complete -F _prj prj
-
 function dev {
-  prj cloudflare
   tmux new-session -d
   tmux split-window -h
   tmux split-window -v

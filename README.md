@@ -20,13 +20,12 @@
 sudo chown -R $(who | head -n 1 | awk '{print $1;}'): $HOME
 ```
 
-- install `tmux` plugins after starting `tmux` for the first time with `bind-key + shift + i` (`Ctrl-a + I`)
-- reload `tmux` by running `bind-key + shift + r` (`Ctrl-a + R`)
 - add the tpm tmux plugin manager
-
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+- install `tmux` plugins after starting `tmux` for the first time with `bind-key + shift + i` (`Ctrl-a + I`)
+- reload `tmux` by running `bind-key + shift + r` (`Ctrl-a + R`)
 
 ## Installation
 
