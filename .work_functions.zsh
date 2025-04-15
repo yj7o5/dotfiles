@@ -130,8 +130,6 @@ function disable_sfo_dog_proxy  {
 export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
-eval "$(temporal completion zsh)"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jevans/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jevans/Desktop/google-cloud-sdk/path.zsh.inc'; fi
 
