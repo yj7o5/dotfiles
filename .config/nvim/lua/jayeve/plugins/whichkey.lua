@@ -113,7 +113,7 @@ which_key.register({
 		},
 		p = {
 			function()
-				local base = os.getenv("HOME") .. "/cloudflare"
+				local base = os.getenv("HOME") .. "/projects"
 				prj.git_dir_picker(base)
 			end,
 			"open CF project in tmux",

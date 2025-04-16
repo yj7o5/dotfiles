@@ -2,8 +2,8 @@
   excludesfile = ~/.gitignore
   editor = nvim
 [user]
-	name = J Evans
-	email = j@cloudflare.com
+	name = Yawar Jamal
+	email = yawar@cloudflare.com
 [alias]
   recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:red)%(objectname:short)%(color:reset) | %(contents:subject) | %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   squash = "!f() { git rebase -i origin/${1:-main}; }; f"

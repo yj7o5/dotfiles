@@ -35,7 +35,7 @@ end
 local function prj_helper(team, project)
 	local starting_dir = vim.fn.getcwd()
 
-	local base = os.getenv("HOME") .. "/cloudflare"
+	local base = os.getenv("HOME") .. "/projects"
 	if vim.fn.isdirectory(base) == 0 then
 		print("creating " .. base)
 		vim.fn.mkdir(base, "p")

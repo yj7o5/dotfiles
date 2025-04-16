@@ -33,7 +33,7 @@ chsh -s $(which zsh)
 rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-cp j.zsh-theme $HOME/.oh-my-zsh/themes/j.zsh-theme
+cp yawar.zsh-theme $HOME/.oh-my-zsh/themes/yawar.zsh-theme
 cp .zshrc "$HOME/.zshrc"
 cp .zsh_aliases "$HOME/.zsh_aliases"
 
