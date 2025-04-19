@@ -162,18 +162,19 @@ lazy.setup({
 	{ "jose-elias-alvarez/null-ls.nvim" }, -- configure formatters & linters
 	{ "jayp0521/mason-null-ls.nvim" }, -- bridges gap b/w mason & null-ls
 
-	-- treesitter configuration
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	},
+	-- *** disable treesitter as its causing too many highlighting errors ***
+	-- treesitter configuration ()
+	-- {
+	--	"nvim-treesitter/nvim-treesitter",
+	--	build = function()
+	--	require("nvim-treesitter.install").update({ with_sync = true })
+	--	end,
+	-- },
 	-- { "nvim-treesitter/nvim-treesitter-context" }, -- preview top of current containing code block
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
+	-- {
+	--	"nvim-treesitter/nvim-treesitter-textobjects",
+	-- dependencies = { "nvim-treesitter/nvim-treesitter" },
+	-- },
 
 	-- auto closing
 	{ "windwp/nvim-autopairs" }, -- autoclose parens, brackets, quotes, etc...
