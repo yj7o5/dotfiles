@@ -52,7 +52,7 @@ plugins=(
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="j"
+ZSH_THEME="yawar"
 
 # cross-platform clipboard
 if which xclip > /dev/null; then
@@ -131,3 +131,6 @@ gch () {
 }
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# init startship enhanced cmd prompt
+eval "$(starship init zsh)"
