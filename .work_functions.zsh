@@ -121,10 +121,16 @@ function enable_sfo_dog_proxy {
   sleep 1
   curl -so - https://cloudflare.com/cdn-cgi/trace | grep '^colo=\|^sliver=\|^fl='
 }
+
 function disable_sfo_dog_proxy  {
   sudo warp-cli tunnel endpoint reset > /dev/null
   sleep 1
   curl -so - https://cloudflare.com/cdn-cgi/trace | grep '^colo=\|^sliver=\|^fl='
+}
+
+# connect to clichouse ready analytics cluster
+function connect_clickhouse_ready_analytics {
+  clickhouse-cli -h https://ready-analytics.ch.cfdata.org -p 443 -c CF_Authorization=$(cloudflared access token --app=https://ready-analytics.ch.cfdata.org) -u ldap_yawar -B v03JqRULkEHXWRez5zvI
 }
 
 export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
