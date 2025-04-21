@@ -141,3 +141,9 @@ if [ -f '/Users/jevans/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jevans/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jevans/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+
+# needed with latest docker engine
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_DEFAULT_PLATFORM=linux/arm64
+
