@@ -147,3 +147,6 @@ export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_DEFAULT_PLATFORM=linux/arm64
 
+# private CF npm registry
+# https://wiki.cfdata.org/display/FE/Getting+started+with+the+private+NPM+registry
+export NPM_TOKEN=$(cloudflared access login --no-verbose https://registry.cloudflare-ui.com)
