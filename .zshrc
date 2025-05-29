@@ -31,8 +31,10 @@ source_if_exists $ZSH/oh-my-zsh.sh
 # zoxide for quicker directory changes
 autoload -Uz compinit
 compinit -i
+
 # add ~/.local/bin to $PATH if it exists. necessary for zoxide
 [[ -d "$HOME/.local/bin" ]] && extend_path "$HOME/.local/bin"
+extend_path "/opt/homebrew/bin"
 
 eval "$(zoxide init zsh)"
 
