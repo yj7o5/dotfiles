@@ -128,11 +128,6 @@ function disable_sfo_dog_proxy  {
   curl -so - https://cloudflare.com/cdn-cgi/trace | grep '^colo=\|^sliver=\|^fl='
 }
 
-# connect to clichouse ready analytics cluster
-function connect_clickhouse_ready_analytics {
-  clickhouse-cli -h https://ready-analytics.ch.cfdata.org -p 443 -c CF_Authorization=$(cloudflared access token --app=https://ready-analytics.ch.cfdata.org) -u ldap_yawar -B v03JqRULkEHXWRez5zvI
-}
-
 export JAVA_HOME=$HOME/OpenJDK/jdk-22.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -150,3 +145,7 @@ export DOCKER_DEFAULT_PLATFORM=linux/arm64
 # private CF npm registry
 # https://wiki.cfdata.org/display/FE/Getting+started+with+the+private+NPM+registry
 export NPM_TOKEN=$(cloudflared access login --no-verbose https://registry.cloudflare-ui.com)
+
+# Accessing Vault
+export VAULT_CACERT=/etc/ssl/certs/cfks.crt
+alias vault-fed="VAULT_ADDR=https://fed.vault.cfdata.org:8200 vault $@"
